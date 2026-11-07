@@ -10,7 +10,8 @@ import { whatsappHref } from "@/lib/whatsapp";
 
 export const site = {
   name: "Fred.o",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // trim() remove espaços e caracteres invisíveis que às vezes vêm junto ao colar a variável
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").trim().replace(/\/+$/, ""),
   title: "Fred.o — Robô de pesagem para restaurantes self-service por quilo",
   description:
     "Automatize a pesagem do seu restaurante com o Fred.o: o robô que participa da pesagem, mostra peso e valor, lê comandas e se conecta ao seu PDV compatível.",
