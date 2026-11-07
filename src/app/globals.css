@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* ---------- Design tokens (identidade visual Fredo) ---------- */
+@theme {
+  /* Paleta principal */
+  --color-ink: #000000; /* textos, títulos, logo */
+  --color-paper: #ffffff; /* fundo, respiro */
+
+  /* Paleta secundária */
+  --color-cream: #f7f6f2; /* fundos alternativos */
+  --color-line: #ececec; /* cards, linhas, separadores */
+  --color-muted: #7b7b7b; /* textos secundários */
+  --color-graphite: #2c2c2c; /* menus, rodapé, hover do botão primário */
+
+  /* Cor de destaque */
+  --color-terracotta: #c56a37;
+
+  --color-danger: #b42318;
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  /* Hierarquia tipográfica */
+  --text-h1: 4rem; /* 64px */
+  --text-h1--line-height: 1.08;
+  --text-h2: 3rem; /* 48px */
+  --text-h2--line-height: 1.12;
+  --text-h3: 2.25rem; /* 36px */
+  --text-h3--line-height: 1.2;
+  --text-h4: 1.75rem; /* 28px */
+  --text-h4--line-height: 1.3;
+  --text-body: 1.125rem; /* 18px */
+  --text-body--line-height: 1.65;
+  --text-small: 1rem; /* 16px */
+  --text-small--line-height: 1.6;
+
+  /* Bordas */
+  --radius-card: 16px;
+  --radius-button: 12px;
+  --radius-field: 10px;
+
+  /* Sombras suaves */
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -12px rgb(0 0 0 / 0.08);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.04), 0 18px 40px -18px rgb(0 0 0 / 0.14);
+
+  --ease-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    color-scheme: light;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgb(197 106 55 / 0.2);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* ---------- Animações (250–350 ms) ---------- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 350ms var(--ease-soft) both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@utility animate-fade-in {
+  animation: fade-in 350ms var(--ease-soft) both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Órbita lenta em volta do produto (detalhe tecnológico) */
+@utility animate-orbit {
+  animation: orbit 28s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Ponto percorrendo as ligações do fluxo de integração */
+@keyframes flow-x {
+  from {
+    left: 0;
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes flow-y {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@utility animate-flow-x {
+  animation: flow-x 2.2s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@utility animate-flow-y {
+  animation: flow-y 2.2s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Seta fina do <select> */
+@utility select-chevron {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237b7b7b' stroke-width='1.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25rem;
+}
+
+/* Container de 1280 px */
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: calc(1280px + 2 * 1rem);
+  padding-inline: 1rem;
+
+  @media (width >= 48rem) {
+    max-width: calc(1280px + 2 * 2rem);
+    padding-inline: 2rem;
+  }
+}
