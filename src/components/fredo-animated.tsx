@@ -68,7 +68,9 @@ export function FredoAnimated({
   const layer = "absolute inset-0 h-full w-full object-contain object-bottom";
 
   return (
-    <div ref={wrapRef} className={cn("relative h-full w-full", className)}>
+    // Caixa com a mesma proporção do robô (470×852): capa e vídeo ocupam a mesma área,
+    // então o vídeo não "substitui" a capa como maior elemento da tela (LCP).
+    <div ref={wrapRef} className={cn("relative mx-auto aspect-[470/852] h-full max-w-full", className)}>
       <Image
         src={poster}
         alt={alt}
