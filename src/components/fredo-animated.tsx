@@ -72,7 +72,7 @@ export function FredoAnimated({
       <Image
         src={poster}
         alt={alt}
-        priority={priority}
+        preload={priority}
         sizes={sizes}
         className={cn(layer, "transition-opacity duration-300", ready && "opacity-0")}
       />

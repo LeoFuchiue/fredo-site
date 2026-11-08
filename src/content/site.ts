@@ -12,9 +12,9 @@ export const site = {
   name: "Fred.o",
   // trim() remove espaços e caracteres invisíveis que às vezes vêm junto ao colar a variável
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").trim().replace(/\/+$/, ""),
-  title: "Fred.o — Robô de pesagem para restaurantes self-service por quilo",
+  title: "Fred.o | Robô Inteligente para Restaurantes por Quilo",
   description:
-    "Automatize a pesagem do seu restaurante com o Fred.o: o robô que participa da pesagem, mostra peso e valor, lê comandas e se conecta ao seu PDV compatível.",
+    "Conheça o Fred.o, robô inteligente para restaurantes self-service. Tecnologia para pesagem, leitura de comandas e integração com PDV compatível.",
   locale: "pt_BR",
   signature: ["Rapidez", "Precisão", "Economia"],
 } as const;
@@ -143,7 +143,7 @@ export const videoShowcase = {
   eyebrow: "Veja o Fred.o em ação",
   title: "Conheça o Fred.o funcionando.",
   src: "/fredo/video/fredo-em-acao.mp4",
-  poster: "/fredo/video/fredo-em-acao-poster.jpg",
+  poster: "/fredo/video/fredo-em-acao-poster.webp",
   // Texto que aparece na tela do vídeo (para leitores de tela).
   transcript:
     "Vídeo: Hora do almoço. Fila na balança? Oi! Eu sou o fred.o, o robô de pesagem autônoma para restaurantes self-service. Como funciona: 1. Prato na balança: o cliente se serve e pesa. 2. fred.o lê o peso e pede para bipar a comanda. 3. Valor direto no caixa, integrado ao seu PDV. Pesagem 100% autônoma. Sem fila. Sem funcionário na balança.",

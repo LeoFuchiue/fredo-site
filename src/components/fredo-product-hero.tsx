@@ -99,8 +99,9 @@ export function FredoProductHero({ tone = "dark", chips = [], priority, classNam
         />
         <m.div
           className="relative h-full w-full"
-          initial={{ opacity: 0, y: reduce ? 0 : 28 }}
-          animate={{ opacity: 1, y: 0 }}
+          // Sem começar invisível: a capa já conta como o elemento principal (LCP)
+          initial={{ y: reduce ? 0 : 24 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.9, ease, delay: 0.1 }}
         >
           {/* O robô já flutua e a tela anima dentro do próprio vídeo */}

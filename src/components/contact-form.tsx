@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, m } from "motion/react";
 import { ExternalLink } from "lucide-react";
+import { track } from "@/lib/analytics";
 import { demoRequestMessage, externalLinkProps, whatsappLink, type DemoRequest } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "./whatsapp-icon";
 import { buttonBase, buttonVariants, cn } from "./ui";
@@ -45,9 +46,11 @@ export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [openedLink, setOpenedLink] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const started = useRef(false);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    track("solicitar_demonstracao_click");
     const fd = new FormData(e.currentTarget);
     const data: DemoRequest = {
       name: String(fd.get("name") ?? "").trim().slice(0, 120),
@@ -72,11 +75,23 @@ export function ContactForm() {
     a.rel = externalLinkProps.rel;
     a.click();
     setOpenedLink(href);
+    // Formulário válido e WhatsApp aberto (não confirma que a mensagem foi enviada).
+    track("form_submit_valido", { pdv_informado: data.pos.length > 0 ? "sim" : "nao" });
   }
 
   return (
     <div className="relative rounded-card border border-line bg-paper p-6 shadow-soft md:p-12">
-      <form ref={formRef} onSubmit={onSubmit} noValidate className="grid gap-5">
+      <form
+        ref={formRef}
+        onSubmit={onSubmit}
+        onFocus={() => {
+          if (started.current) return;
+          started.current = true;
+          track("form_start");
+        }}
+        noValidate
+        className="grid gap-5"
+      >
         <div className="grid gap-5 sm:grid-cols-2">
           {fields.map((f) => {
             const id = `demo-${f.name}`;
