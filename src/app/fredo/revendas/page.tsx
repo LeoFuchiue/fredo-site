@@ -4,12 +4,13 @@ import { SectionLabel } from "@/components/brand";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { Reveal } from "@/components/reveal";
-import { ResellerFinder } from "@/components/reseller-finder";
+import { FredoSays } from "@/components/fredo-says";
+import { LeadForm } from "@/components/lead-form";
 
 const path = "/fredo/revendas";
-const title = "Encontre uma revenda fred.o";
+const title = "Fale com uma revenda fred.o";
 const description =
-  "Digite o CEP do seu restaurante e encontre a revenda autorizada fred.o mais próxima para ver o robô de pesagem funcionando, contratar e instalar.";
+  "Peça o contato de uma revenda autorizada fred.o (Fredo) perto do seu restaurante para ver o robô de pesagem funcionando, conhecer as condições e instalar.";
 
 export const metadata: Metadata = {
   title,
@@ -27,36 +28,52 @@ export default function RevendasPage() {
       <main id="conteudo" tabIndex={-1} className="outline-none">
         <section
           aria-labelledby="revendas-title"
-          className="relative overflow-hidden bg-cream pt-24 pb-14 md:pt-36 md:pb-20 lg:pt-40"
+          className="relative bg-cream pt-24 pb-14 md:pt-36 md:pb-20 lg:pt-40"
         >
-          <div aria-hidden="true" className="absolute -top-40 -right-40 size-[34rem] rounded-full border border-ink/5" />
-          <div aria-hidden="true" className="absolute -top-16 -right-16 size-[20rem] rounded-full border border-ink/5" />
+          {/* Círculos da marca num recorte próprio, para o texto da esquerda poder ficar fixo na rolagem */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="absolute -top-40 -right-40 size-[34rem] rounded-full border border-ink/5" />
+            <div className="absolute -top-16 -right-16 size-[20rem] rounded-full border border-ink/5" />
+          </div>
 
-          <div className="container-page relative flex flex-col items-start gap-6">
-            <span className="animate-fade-in">
-              <SectionLabel>Revendas autorizadas</SectionLabel>
-            </span>
-            <h1
-              id="revendas-title"
-              className="animate-fade-up max-w-3xl text-balance text-[2.5rem] leading-[1.08] font-bold [animation-delay:80ms] sm:text-[3rem] lg:text-[3.5rem]"
-            >
-              Encontre a revenda{" "}
-              <span className="whitespace-nowrap">
-                fred<span className="text-terracotta">.</span>o
-              </span>{" "}
-              mais perto de você.
-            </h1>
-            <p className="animate-fade-up max-w-2xl text-pretty text-body text-graphite/80 [animation-delay:160ms]">
-              Digite o CEP do seu restaurante. A revenda da sua região mostra o fred.o funcionando, tira suas
-              dúvidas, apresenta as condições de locação, faz a instalação e cuida do seu atendimento.
-            </p>
-            <div className="animate-fade-up mt-2 w-full [animation-delay:220ms]">
-              <ResellerFinder />
+          <div className="container-page relative grid gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="flex flex-col items-start gap-6 lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
+              <span className="animate-fade-in">
+                <SectionLabel>Revendas autorizadas</SectionLabel>
+              </span>
+              <h1
+                id="revendas-title"
+                className="animate-fade-up text-balance text-[2.25rem] leading-[1.08] font-bold [animation-delay:80ms] sm:text-[2.75rem] lg:text-[3rem]"
+              >
+                Fale com uma revenda{" "}
+                <span className="whitespace-nowrap">
+                  fred<span className="text-terracotta">.</span>o
+                </span>{" "}
+                perto de você.
+              </h1>
+              <p className="animate-fade-up text-pretty text-body text-graphite/80 [animation-delay:160ms]">
+                Preencha os dados do seu restaurante. A nossa equipe encaminha o seu pedido para a revenda autorizada da sua
+                região, que entra em contato para mostrar o fred.o funcionando e apresentar as condições.
+              </p>
+              <ol className="animate-fade-up flex flex-col gap-3 text-small text-graphite [animation-delay:220ms]">
+                {[
+                  "Você preenche e envia pelo WhatsApp",
+                  "A gente encaminha para a revenda da sua região",
+                  "A revenda fala com você e agenda a demonstração",
+                ].map((passo, i) => (
+                  <li key={passo} className="flex items-start gap-3">
+                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full border border-ink/15 text-sm font-semibold text-ink">
+                      {i + 1}
+                    </span>
+                    {passo}
+                  </li>
+                ))}
+              </ol>
+              <FredoSays>Leva menos de 2 minutos!</FredoSays>
             </div>
-            <p className="mt-4 max-w-2xl text-sm text-muted">
-              Usamos o CEP só para encontrar as revendas próximas. Ele é consultado em um serviço público de CEP e
-              não fica salvo no site.
-            </p>
+            <div className="animate-fade-up [animation-delay:200ms] lg:col-span-8">
+              <LeadForm />
+            </div>
           </div>
         </section>
 

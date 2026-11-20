@@ -124,13 +124,8 @@ function PartnerHero() {
 
           {revendas.length > 0 && (
             <p className="animate-fade-up text-small text-graphite/80 [animation-delay:280ms]">
-              <span className="font-semibold text-ink">Já fazem parte: </span>
-              {revendas.map((r, i) => (
-                <span key={r.id}>
-                  {i > 0 && " · "}
-                  {r.nome} ({r.cidade}/{r.uf})
-                </span>
-              ))}
+              <span className="font-semibold text-ink">Revendas autorizadas em: </span>
+              {[...new Set(revendas.map((r) => `${r.cidade}/${r.uf}`))].join(" · ")}
             </p>
           )}
         </div>

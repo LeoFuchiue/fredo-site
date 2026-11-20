@@ -10,13 +10,14 @@
  * O CEP só é usado nesta consulta; nada fica salvo no site.
  */
 
-import type { Revenda } from "@/content/revendas";
+import type { AreaRevenda as Revenda } from "@/content/revendas";
 
 export type LocalCep = {
   cep: string;
   cidade: string;
   uf: string;
   bairro?: string;
+  rua?: string;
   lat?: number;
   lng?: number;
 };
@@ -67,6 +68,7 @@ export async function buscarCep(cep: string): Promise<LocalCep | null> {
     city?: string;
     state?: string;
     neighborhood?: string;
+    street?: string;
     location?: { coordinates?: { latitude?: string; longitude?: string } };
   };
   const b = (await getJson(`https://brasilapi.com.br/api/cep/v2/${d}`)) as BrasilApi | null;
@@ -76,15 +78,16 @@ export async function buscarCep(cep: string): Promise<LocalCep | null> {
       cidade: b.city,
       uf: b.state,
       bairro: b.neighborhood || undefined,
+      rua: b.street || undefined,
       lat: numero(b.location?.coordinates?.latitude),
       lng: numero(b.location?.coordinates?.longitude),
     };
   }
 
-  type ViaCep = { localidade?: string; uf?: string; bairro?: string; erro?: boolean | string };
+  type ViaCep = { localidade?: string; uf?: string; bairro?: string; logradouro?: string; erro?: boolean | string };
   const v = (await getJson(`https://viacep.com.br/ws/${d}/json/`)) as ViaCep | null;
   if (v && !v.erro && v.localidade && v.uf) {
-    return { cep: d, cidade: v.localidade, uf: v.uf, bairro: v.bairro || undefined };
+    return { cep: d, cidade: v.localidade, uf: v.uf, bairro: v.bairro || undefined, rua: v.logradouro || undefined };
   }
   return null;
 }

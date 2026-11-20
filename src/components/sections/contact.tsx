@@ -45,11 +45,11 @@ export function Contact() {
                 />
                 <button type="submit" className={cn(buttonBase, buttonVariants.primary)}>
                   <Search className="size-5" strokeWidth={1.75} aria-hidden="true" />
-                  Buscar revenda
+                  Continuar
                 </button>
               </div>
               <p className="text-sm text-muted">
-                Mostramos as revendas autorizadas mais próximas, com WhatsApp, endereço e site.
+                No próximo passo você completa os dados do restaurante e a gente encaminha para a revenda da sua região.
               </p>
               {revendas.length > 0 && (
                 <p className="text-sm text-graphite">

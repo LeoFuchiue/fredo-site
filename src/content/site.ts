@@ -226,10 +226,10 @@ export const hiring = {
 
 // 9 — Encontre uma revenda (o contato do restaurante vai para a revenda da região)
 export const contact = {
-  says: "Vamos achar a revenda mais perto de você?",
+  says: "Vamos achar quem atende você?",
   eyebrow: "Revendas autorizadas",
   title: "Encontre a revenda fred.o mais próxima.",
   description:
-    "Digite o CEP do seu restaurante e veja as revendas autorizadas da sua região. Elas mostram o fred.o funcionando, tiram suas dúvidas, fazem a instalação e cuidam do seu atendimento.",
+    "Digite o CEP do seu restaurante e peça o contato de uma revenda autorizada da sua região. Ela mostra o fred.o funcionando, tira suas dúvidas, faz a instalação e cuida do seu atendimento.",
   cta: { href: whatsappHref("demo"), label: "Falar com a nossa equipe" },
 } as const;
