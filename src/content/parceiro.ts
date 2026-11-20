@@ -136,7 +136,7 @@ export const partnerFaq = {
     },
     {
       q: "Existe meta mínima de vendas?",
-      a: "Não. O programa não exige metas mínimas.",
+      a: "Não. Você não precisa bater meta para ser parceiro nem para receber a sua comissão. E quem quiser ir além vai ter motivo: estamos preparando um programa de metas com benefícios extras para os parceiros que mais se destacarem, para os seus ganhos ficarem ainda maiores. Os detalhes estão sendo finalizados, e quem já é parceiro fica sabendo primeiro.",
     },
     {
       q: "O fred.o funciona com qualquer sistema de caixa?",
