@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CheckCircle2, ExternalLink, LoaderCircle, MapPin } from "lucide-react";
+import { CheckCircle2, ExternalLink, Handshake, LoaderCircle, MapPin } from "lucide-react";
 import { revendas } from "@/content/revendas";
 import { track } from "@/lib/analytics";
 import { buscarCep, encontrarRevendas, mascaraCep, somenteDigitos } from "@/lib/cep";
@@ -380,6 +380,9 @@ export function LeadForm() {
                 : `Ainda não temos revenda cadastrada em ${cobertura.onde}, mas pode enviar: a nossa equipe procura a melhor forma de atender você.`}
             </p>
           )}
+          {cobertura && !cobertura.tem && (
+            <IndicarParceiro regiao={cobertura.onde} indicadoPor={{ nome: v.nome, restaurante: v.restaurante, whatsapp: v.whatsapp }} />
+          )}
         </div>
       </fieldset>
 
@@ -474,5 +477,177 @@ export function LeadForm() {
         </p>
       </div>
     </form>
+  );
+}
+
+/**
+ * Sem revenda na região: o restaurante pode indicar uma empresa de automação que ele conhece.
+ * Não é um <form> próprio (não pode haver formulário dentro de formulário): tem botão e validação próprios.
+ */
+function IndicarParceiro({
+  regiao,
+  indicadoPor,
+}: {
+  regiao: string;
+  indicadoPor: { nome: string; restaurante: string; whatsapp: string };
+}) {
+  const [aberto, setAberto] = useState(false);
+  const [d, setD] = useState({ empresa: "", contato: "", telefone: "", cargo: "" });
+  const [erros, setErros] = useState<Partial<Record<keyof typeof d, string>>>({});
+  const [link, setLink] = useState<string | null>(null);
+  const painelRef = useRef<HTMLDivElement>(null);
+
+  const set = (k: keyof typeof d, valor: string) => {
+    setD((atual) => ({ ...atual, [k]: valor }));
+    if (erros[k]) setErros((e) => ({ ...e, [k]: undefined }));
+  };
+
+  function enviar() {
+    const e: typeof erros = {};
+    if (d.empresa.trim().length < 2) e.empresa = "Informe o nome da empresa.";
+    if (d.contato.trim().length < 2) e.contato = "Informe o nome do contato.";
+    const tel = somenteDigitos(d.telefone);
+    if (tel.length < 10 || tel.length > 11) e.telefone = "Informe o telefone com DDD.";
+    setErros(e);
+    const primeiro = Object.keys(e)[0];
+    if (primeiro) {
+      painelRef.current?.querySelector<HTMLElement>(`[name="indicacao-${primeiro}"]`)?.focus();
+      return;
+    }
+    const quem = [indicadoPor.nome.trim(), indicadoPor.restaurante.trim()].filter(Boolean).join(" - ");
+    const texto = [
+      "*Indicação de parceiro pelo site fred.o*",
+      "",
+      `Região sem revenda: ${regiao}`,
+      "",
+      "*Empresa indicada*",
+      `Nome fantasia: ${d.empresa.trim()}`,
+      `Contato: ${d.contato.trim()}`,
+      `Telefone: ${d.telefone}`,
+      `Cargo: ${d.cargo.trim() || "Não informado"}`,
+      "",
+      `Indicado por: ${quem || "Não informado"}${indicadoPor.whatsapp ? ` (${indicadoPor.whatsapp})` : ""}`,
+    ].join("\n");
+    const href = whatsappLink(texto);
+    const a = document.createElement("a");
+    a.href = href;
+    a.target = externalLinkProps.target;
+    a.rel = externalLinkProps.rel;
+    a.click();
+    setLink(href);
+    track("indicacao_parceiro_enviada", { regiao });
+  }
+
+  // Enter num campo da indicação envia a indicação, e não o pedido principal.
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      enviar();
+    }
+  };
+
+  const campo = (k: keyof typeof d) => ({
+    id: `indicacao-${k}`,
+    name: `indicacao-${k}`,
+    value: d[k],
+    onKeyDown,
+    "aria-invalid": Boolean(erros[k]),
+    "aria-describedby": erros[k] ? `indicacao-${k}-erro` : undefined,
+    className: cn(inputBase, erros[k] ? "border-danger" : "border-line"),
+  });
+  const erro = (k: keyof typeof d) =>
+    erros[k] ? (
+      <p id={`indicacao-${k}-erro`} className="text-sm text-danger">
+        {erros[k]}
+      </p>
+    ) : null;
+
+  if (!aberto) {
+    return (
+      <div className="mt-3 flex flex-col gap-3 rounded-field border border-dashed border-ink/20 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-small text-graphite">
+          Conhece uma empresa de automação comercial na sua região? Indique e a gente convida para ser revenda fred.o.
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            setAberto(true);
+            track("indicacao_parceiro_aberta", { regiao });
+            requestAnimationFrame(() => painelRef.current?.querySelector<HTMLElement>("input")?.focus());
+          }}
+          className={cn(buttonBase, buttonVariants.secondary, "min-h-11 shrink-0 px-5 text-small")}
+        >
+          <Handshake className="size-5" strokeWidth={1.75} aria-hidden="true" />
+          Indique um parceiro
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={painelRef}
+      role="group"
+      aria-labelledby="indicacao-titulo"
+      className="mt-3 grid gap-4 rounded-field border border-ink/15 bg-cream px-4 py-5 sm:px-6"
+    >
+      <div>
+        <p id="indicacao-titulo" className="flex items-center gap-2 text-body font-bold text-ink">
+          <Handshake className="size-5 text-terracotta" strokeWidth={1.75} aria-hidden="true" />
+          Indique um parceiro
+        </p>
+        <p className="mt-1 text-sm text-muted">Só o básico: a nossa equipe faz o convite.</p>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="indicacao-empresa" className="text-small font-medium text-ink">Nome fantasia da empresa</label>
+          <input {...campo("empresa")} placeholder="Ex.: Automação Silva" onChange={(e) => set("empresa", e.target.value)} />
+          {erro("empresa")}
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="indicacao-contato" className="text-small font-medium text-ink">Nome do contato</label>
+          <input {...campo("contato")} placeholder="Com quem falar" onChange={(e) => set("contato", e.target.value)} />
+          {erro("contato")}
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="indicacao-telefone" className="text-small font-medium text-ink">Telefone ou WhatsApp</label>
+          <input
+            {...campo("telefone")}
+            type="tel"
+            inputMode="tel"
+            placeholder="(11) 90000-0000"
+            onChange={(e) => set("telefone", mascaraTelefone(e.target.value))}
+          />
+          {erro("telefone")}
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="indicacao-cargo" className="text-small font-medium text-ink">
+            Cargo na empresa <span className="font-normal text-muted">(opcional)</span>
+          </label>
+          <input {...campo("cargo")} placeholder="Ex.: dono, vendedor, técnico" onChange={(e) => set("cargo", e.target.value)} />
+        </div>
+      </div>
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <button type="button" onClick={enviar} className={cn(buttonBase, buttonVariants.primary, "min-h-11 px-5 text-small")}>
+          <WhatsAppIcon className="size-5 shrink-0" />
+          Enviar indicação
+          <span className="sr-only"> (abre o WhatsApp em nova aba)</span>
+        </button>
+        <button type="button" onClick={() => setAberto(false)} className="min-h-11 px-3 text-small font-medium text-muted underline-offset-4 hover:text-ink hover:underline">
+          Cancelar
+        </button>
+      </div>
+      <div aria-live="polite">
+        {link && (
+          <p className="text-sm text-graphite">
+            Obrigado pela indicação! Abrimos o WhatsApp com os dados; é só tocar em enviar.{" "}
+            <a href={link} {...externalLinkProps} className="font-semibold text-ink underline underline-offset-4">
+              Não abriu? Clique aqui
+            </a>
+          </p>
+        )}
+      </div>
+      <p className="text-sm text-muted">Você pode continuar o seu pedido normalmente logo abaixo.</p>
+    </div>
   );
 }
