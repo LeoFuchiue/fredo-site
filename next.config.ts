@@ -8,7 +8,9 @@ const nextConfig: NextConfig = {
     return [
       // Atalhos para a página de parceiros.
       { source: "/parceiro", destination: "/fredo/parceiro", permanent: true },
-      { source: "/fredo", destination: "/fredo/parceiro", permanent: false },
+      { source: "/revendas", destination: "/fredo/revendas", permanent: true },
+      { source: "/revenda", destination: "/fredo/revendas", permanent: true },
+      { source: "/fredo", destination: "/fredo/revendas", permanent: false },
       {
         source: "/:path*",
         has: [{ type: "host", value: "fredo-site-one.vercel.app" }],

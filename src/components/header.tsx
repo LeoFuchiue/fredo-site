@@ -5,16 +5,17 @@ import Link from "next/link";
 import { AnimatePresence, m } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { nav } from "@/content/site";
-import { externalLinkProps, whatsappHref } from "@/lib/whatsapp";
+import { externalLinkProps } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "./whatsapp-icon";
 import { ButtonLink, Logo, cn } from "./ui";
 
 type HeaderCta = { href: string; label: string };
 
-/** `cta`: botão de destaque do topo. Padrão: encontrar uma revenda pelo WhatsApp. */
+/** `cta`: botão de destaque do topo. Padrão: página "Encontre uma revenda". */
 export function Header({
-  cta = { href: whatsappHref("demo"), label: "Encontre uma revenda" },
+  cta = { href: "/fredo/revendas", label: "Encontre uma revenda" },
 }: { cta?: HeaderCta } = {}) {
+  const externo = /^https?:\/\//.test(cta.href);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -87,7 +88,7 @@ export function Header({
           </ul>
 
           <div className="hidden lg:mr-3 lg:ml-auto lg:block xl:mr-0 xl:ml-0">
-            <ButtonLink href={cta.href} whatsapp className="min-h-11 px-5 text-small">
+            <ButtonLink href={cta.href} whatsapp={externo} className="min-h-11 px-5 text-small">
               {cta.label}
             </ButtonLink>
           </div>
@@ -140,13 +141,13 @@ export function Header({
               <li className="pt-6">
                 <a
                   href={cta.href}
-                  {...externalLinkProps}
+                  {...(externo ? externalLinkProps : {})}
                   onClick={() => setOpen(false)}
                   className="flex min-h-13 w-full items-center justify-center gap-2 rounded-button bg-ink font-semibold text-paper transition-colors duration-300 hover:bg-graphite"
                 >
-                  <WhatsAppIcon className="size-5" />
+                  {externo && <WhatsAppIcon className="size-5" />}
                   {cta.label}
-                  <span className="sr-only"> (abre o WhatsApp em nova aba)</span>
+                  {externo && <span className="sr-only"> (abre o WhatsApp em nova aba)</span>}
                 </a>
               </li>
             </ul>

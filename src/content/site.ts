@@ -30,9 +30,9 @@ export const nav = [
 
 /**
  * Atendimento ao restaurante é sempre feito por uma revenda autorizada.
- * As chamadas levam ao WhatsApp central, que encaminha para a revenda da região.
+ * As chamadas levam à página "Encontre uma revenda" (busca pelo CEP).
  */
-const reseller = { href: whatsappHref("demo"), label: "Encontre uma revenda" };
+const reseller = { href: "/fredo/revendas", label: "Encontre uma revenda" };
 export const resellerCta = reseller;
 
 // 1 — Rapidez. Precisão. Economia.
@@ -41,7 +41,7 @@ export const hero = {
   subtitle:
     "O robô que pesa o prato, pede a comanda e manda o valor direto para o caixa. Sem fila e sem funcionário parado na balança do seu self-service.",
   primaryCta: { href: "#como-funciona", label: "Veja como funciona" },
-  secondaryCta: { href: "#contato", label: "Encontre uma revenda" },
+  secondaryCta: reseller,
 };
 
 // 2 — Conheça o fred.o
@@ -162,7 +162,7 @@ export const integration = {
   text: "O fred.o foi pensado para trabalhar junto com o sistema de gestão do restaurante: o valor de cada pesagem segue para o caixa, sem precisar ser digitado de novo.",
   note: "O fred.o funciona com sistemas de PDV e balanças homologados. A revenda da sua região confirma se o seu sistema é compatível antes da instalação.",
   flow: ["Balança", "fred.o", "Comanda", "PDV homologado"],
-  cta: { href: "#contato", label: "Consultar o meu PDV" },
+  cta: { href: "/fredo/revendas", label: "Consultar com uma revenda" },
 } as const;
 
 // 8 — Contratação (locação mensal, sem preços nem prazos; atendimento pelas revendas)
@@ -175,7 +175,7 @@ export const hiring = {
     { title: "Revenda perto de você", text: "Uma revenda autorizada da sua região apresenta o fred.o, faz a instalação e dá o suporte." },
     { title: "Proposta para a sua operação", text: "Valores e condições são apresentados pela revenda, de acordo com o seu restaurante." },
   ],
-  cta: { href: whatsappHref("commercial"), label: "Falar com uma revenda" },
+  cta: { href: "/fredo/revendas", label: "Encontre uma revenda" },
 } as const;
 
 // 9 — Encontre uma revenda (o contato do restaurante vai para a revenda da região)
@@ -183,6 +183,6 @@ export const contact = {
   eyebrow: "Revendas autorizadas",
   title: "Encontre a revenda fred.o mais próxima.",
   description:
-    "Diga onde fica o seu restaurante e indicamos uma revenda autorizada da sua região. Ela mostra o fred.o funcionando, tira suas dúvidas, faz a instalação e cuida do seu atendimento.",
-  cta: { href: whatsappHref("demo"), label: "Encontrar pelo WhatsApp" },
+    "Digite o CEP do seu restaurante e veja as revendas autorizadas da sua região. Elas mostram o fred.o funcionando, tiram suas dúvidas, fazem a instalação e cuidam do seu atendimento.",
+  cta: { href: whatsappHref("demo"), label: "Falar com a nossa equipe" },
 } as const;

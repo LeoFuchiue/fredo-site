@@ -34,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${u}/fredo/revendas`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${u}/fredo/parceiro`,
       lastModified: new Date(),
       changeFrequency: "monthly",

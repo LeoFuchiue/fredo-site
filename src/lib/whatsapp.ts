@@ -50,3 +50,9 @@ export function demoRequestMessage(d: DemoRequest): string {
     `Sistema de PDV: ${d.pos}`,
   ].join("\n");
 }
+
+/** Link do WhatsApp de uma revenda, com mensagem dizendo que o contato veio do site do fred.o. */
+export function revendaWhatsappLink(numero: string, revenda: string): string {
+  const msg = `Olá, ${revenda}! Encontrei vocês no site do fred.o e quero conhecer o robô de pesagem para o meu restaurante.`;
+  return `https://wa.me/${numero.replace(/\D/g, "")}?text=${encodeURIComponent(msg)}`;
+}

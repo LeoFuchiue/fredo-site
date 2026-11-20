@@ -1,11 +1,14 @@
+import { Search } from "lucide-react";
 import { contact } from "@/content/site";
-import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
+import { externalLinkProps } from "@/lib/whatsapp";
 import { SectionLabel } from "../brand";
-import { ContactForm } from "../contact-form";
 import { Reveal } from "../reveal";
-import { ButtonLink } from "../ui";
+import { buttonBase, buttonVariants, cn } from "../ui";
 
-/** Seção 9: encontre uma revenda. Botão direto para o WhatsApp + formulário que abre o WhatsApp. */
+/**
+ * Seção 9: encontre uma revenda. O formulário envia o CEP para /fredo/revendas?cep=…,
+ * que mostra as revendas mais próximas (funciona mesmo sem JavaScript).
+ */
 export function Contact() {
   return (
     <section id="contato" aria-labelledby="contato-title" className="bg-cream py-20 md:py-28 lg:py-32">
@@ -16,19 +19,49 @@ export function Contact() {
             {contact.title}
           </h2>
           <p className="max-w-md text-pretty text-body text-graphite/85">{contact.description}</p>
-          <ButtonLink href={contact.cta.href} whatsapp className="w-full sm:w-auto">
-            {contact.cta.label}
-          </ButtonLink>
-          <p className="text-small text-muted">
-            WhatsApp: <span className="font-medium text-graphite">{WHATSAPP_DISPLAY}</span>
-          </p>
         </Reveal>
 
         <Reveal delay={0.1} className="lg:col-span-7">
-          <p className="mb-4 text-small font-medium text-graphite">
-            Preencha os dados e indicamos a revenda autorizada da sua região:
-          </p>
-          <ContactForm />
+          <div className="rounded-card border border-line bg-paper p-6 shadow-soft md:p-12">
+            <form action="/fredo/revendas" method="get" className="flex flex-col gap-4" role="search">
+              <label htmlFor="cep-inicio" className="text-small font-medium text-ink">
+                CEP do restaurante
+              </label>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <input
+                  id="cep-inicio"
+                  name="cep"
+                  inputMode="numeric"
+                  autoComplete="postal-code"
+                  placeholder="00000-000"
+                  required
+                  pattern="\d{5}-?\d{3}"
+                  title="Digite os 8 números do CEP"
+                  maxLength={9}
+                  className="min-h-13 flex-1 rounded-field border border-line bg-paper px-5 text-body text-ink tabular-nums placeholder:text-muted/80 outline-none transition-[border-color,box-shadow] duration-300 focus:border-terracotta focus:shadow-[0_0_0_3px_rgb(197_106_55/0.15)]"
+                />
+                <button type="submit" className={cn(buttonBase, buttonVariants.primary)}>
+                  <Search className="size-5" strokeWidth={1.75} aria-hidden="true" />
+                  Buscar revenda
+                </button>
+              </div>
+              <p className="text-sm text-muted">
+                Mostramos as revendas autorizadas mais próximas, com WhatsApp, endereço e site.
+              </p>
+            </form>
+
+            <p className="mt-8 border-t border-line pt-6 text-sm text-graphite">
+              Não sabe o CEP ou quer ajuda?{" "}
+              <a
+                href={contact.cta.href}
+                {...externalLinkProps}
+                className="font-semibold text-ink underline decoration-terracotta underline-offset-4 transition-colors duration-300 hover:text-terracotta"
+              >
+                {contact.cta.label}
+                <span className="sr-only"> pelo WhatsApp (abre em nova aba)</span>
+              </a>
+            </p>
+          </div>
         </Reveal>
       </div>
     </section>

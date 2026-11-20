@@ -172,7 +172,7 @@ export function VideoShowcase() {
         </div>
 
         <Reveal className="mt-12 flex flex-col items-center gap-4 text-center md:mt-16">
-          <ButtonLink href={videoShowcase.cta.href} whatsapp className="w-full sm:w-auto">
+          <ButtonLink href={videoShowcase.cta.href} whatsapp={/^https?:/.test(videoShowcase.cta.href)} className="w-full sm:w-auto">
             {videoShowcase.cta.label}
           </ButtonLink>
         </Reveal>

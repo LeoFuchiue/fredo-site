@@ -26,7 +26,7 @@ export function Hiring() {
                 <p className="max-w-lg text-pretty text-body text-paper/75">{hiring.text}</p>
               </Reveal>
               <Reveal delay={0.1}>
-                <ButtonLink href={hiring.cta.href} variant="inverse" whatsapp>
+                <ButtonLink href={hiring.cta.href} variant="inverse" whatsapp={/^https?:/.test(hiring.cta.href)}>
                   {hiring.cta.label}
                 </ButtonLink>
               </Reveal>

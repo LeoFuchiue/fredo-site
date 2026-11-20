@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, m } from "motion/react";
-import { externalLinkProps, whatsappHref } from "@/lib/whatsapp";
-import { WhatsAppIcon } from "./whatsapp-icon";
+import Link from "next/link";
+import { MapPin } from "lucide-react";
 
 /**
- * Botão flutuante de atendimento (canto inferior direito).
+ * Botão flutuante "Encontre uma revenda" (canto inferior direito), leva à busca por CEP.
  * Some enquanto o formulário de contato está na tela, para não cobrir o envio.
  */
 export function WhatsAppFloat() {
@@ -34,21 +34,23 @@ export function WhatsAppFloat() {
   return (
     <AnimatePresence>
       {scrolled && !formVisible && (
-        <m.a
+        <m.div
           key="wa-float"
-          href={whatsappHref("demo")}
-          {...externalLinkProps}
-          aria-label="Encontre uma revenda pelo WhatsApp (abre em nova aba)"
           initial={{ opacity: 0, y: 16, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] } }}
           exit={{ opacity: 0, y: 16, scale: 0.96, transition: { duration: 0.25 } }}
-          className="group fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex items-center gap-2.5 rounded-full bg-ink py-1.5 pr-4 pl-1.5 text-sm font-semibold sm:gap-3 sm:py-2 sm:pr-5 sm:pl-2 sm:text-small text-paper shadow-lift transition-[background-color,transform] duration-300 ease-soft hover:scale-[1.02] hover:bg-graphite motion-reduce:hover:scale-100 md:right-6 md:bottom-6"
+          className="fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 md:right-6 md:bottom-6"
         >
-          <span className="flex size-9 items-center justify-center rounded-full bg-[#25D366] text-paper sm:size-10">
-            <WhatsAppIcon className="size-5" />
+          <Link
+            href="/fredo/revendas"
+            className="group flex items-center gap-2.5 rounded-full bg-ink py-1.5 pr-4 pl-1.5 text-sm font-semibold sm:gap-3 sm:py-2 sm:pr-5 sm:pl-2 sm:text-small text-paper shadow-lift transition-[background-color,transform] duration-300 ease-soft hover:scale-[1.02] hover:bg-graphite motion-reduce:hover:scale-100"
+          >
+          <span className="flex size-9 items-center justify-center rounded-full bg-terracotta text-paper sm:size-10">
+            <MapPin className="size-5" strokeWidth={1.75} aria-hidden="true" />
           </span>
           <span>Encontre uma revenda</span>
-        </m.a>
+          </Link>
+        </m.div>
       )}
     </AnimatePresence>
   );
