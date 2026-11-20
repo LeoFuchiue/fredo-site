@@ -46,7 +46,7 @@ export function Header({
 
   // Close the menu if the viewport grows to desktop size.
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 1280px)");
     const onChange = () => mq.matches && setOpen(false);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -70,13 +70,13 @@ export function Header({
             <Logo />
           </Link>
 
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul className="hidden items-center gap-1 xl:flex">
             {nav.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   className={cn(
-                    "relative px-3 py-2 text-small font-medium whitespace-nowrap transition-colors duration-300 hover:text-terracotta lg:px-2 xl:px-4",
+                    "relative px-3 py-2 text-small font-medium whitespace-nowrap transition-colors duration-300 hover:text-terracotta xl:px-3 2xl:px-4",
                     "text-graphite",
                   )}
                 >
@@ -86,7 +86,7 @@ export function Header({
             ))}
           </ul>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:mr-3 lg:ml-auto lg:block xl:mr-0 xl:ml-0">
             <ButtonLink href={cta.href} whatsapp className="min-h-11 px-5 text-small">
               {cta.label}
             </ButtonLink>
@@ -96,7 +96,7 @@ export function Header({
             ref={toggleRef}
             type="button"
             className={cn(
-              "inline-flex size-11 items-center justify-center rounded-button border transition-colors duration-300 lg:hidden",
+              "inline-flex size-11 items-center justify-center rounded-button border transition-colors duration-300 xl:hidden",
               "border-line text-ink hover:bg-cream",
             )}
             aria-expanded={open}
@@ -118,7 +118,7 @@ export function Header({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8, transition: { duration: 0.25 } }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="h-[calc(100dvh-4rem)] overflow-y-auto border-b border-line bg-paper lg:hidden"
+            className="h-[calc(100dvh-4rem)] overflow-y-auto border-b border-line bg-paper xl:hidden"
           >
             <ul className="container-page flex flex-col gap-1 py-6">
               {nav.map((item, i) => (
