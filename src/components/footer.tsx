@@ -42,7 +42,7 @@ export async function Footer() {
         </nav>
       </div>
       <div className="border-t border-paper/10">
-        <div className="container-page flex flex-col gap-2 py-6 text-small text-paper/60 sm:flex-row sm:justify-between">
+        <div className="container-page flex flex-col gap-2 pt-6 pb-24 text-small text-paper/60 sm:flex-row sm:justify-between sm:pb-6">
           <p>© {new Date().getFullYear()} fred.o. Todos os direitos reservados.</p>
           <a href="#conteudo" className="transition-colors duration-300 hover:text-paper">
             Voltar ao topo ↑

@@ -9,7 +9,7 @@ import { ButtonLink } from "../ui";
 /** Seção 2: o que é o fred.o. Foto real em estúdio + texto curto. */
 export function About() {
   return (
-    <section id="conheca" aria-labelledby="conheca-title" className="py-24 md:py-32">
+    <section id="conheca" aria-labelledby="conheca-title" className="py-16 sm:py-24 md:py-32">
       <div className="container-page grid items-center gap-12 md:grid-cols-12 md:gap-8">
         <Reveal effect="fade-in" className="relative md:col-span-5 lg:col-span-6">
           <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-cream md:aspect-[4/5]">

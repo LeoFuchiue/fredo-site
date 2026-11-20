@@ -61,7 +61,7 @@ export default function PartnerPage() {
         <PartnerContact />
       </main>
       <Footer />
-      <WhatsAppFloat />
+      <WhatsAppFloat cta={partnerHero.primaryCta} />
     </>
   );
 }
@@ -70,7 +70,7 @@ function PartnerHero() {
   return (
     <section
       aria-labelledby="parceiro-title"
-      className="relative overflow-hidden bg-cream pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-36 lg:pb-28"
+      className="relative overflow-hidden bg-cream pt-24 pb-12 md:pt-32 md:pb-24 lg:pt-36 lg:pb-28"
     >
       <div
         aria-hidden="true"
@@ -78,15 +78,15 @@ function PartnerHero() {
       />
 
       <div className="container-page relative grid items-center gap-10 md:grid-cols-12 md:gap-6 lg:gap-8">
-        <div className="order-1 md:order-2 md:col-span-5 lg:col-span-6">
+        <div className="order-2 md:col-span-5 lg:col-span-6">
           <FredoProductHero
             tone="light"
             priority
-            className="max-w-[15rem] sm:max-w-[18rem] md:max-w-[19rem] lg:max-w-[28rem] xl:max-w-[32rem]"
+            className="max-w-[11rem] sm:max-w-[15rem] md:max-w-[19rem] lg:max-w-[28rem] xl:max-w-[32rem]"
           />
         </div>
 
-        <div className="order-2 flex flex-col items-start gap-6 md:order-1 md:col-span-7 lg:col-span-6 lg:gap-8">
+        <div className="order-1 flex flex-col items-start gap-6 md:col-span-7 lg:col-span-6 lg:gap-8">
           <span className="animate-fade-in">
             <SectionLabel>{partnerHero.eyebrow}</SectionLabel>
           </span>
@@ -105,9 +105,9 @@ function PartnerHero() {
             {partnerHero.subtitle}
           </p>
 
-          <div className="animate-fade-up flex items-baseline gap-4 border-l-2 border-terracotta pl-4 [animation-delay:200ms]">
-            <span className="text-h3 leading-none font-bold text-ink md:text-h2">{partnerHero.highlight.value}</span>
-            <span className="max-w-[16rem] text-small text-graphite/80">{partnerHero.highlight.label}</span>
+          <div className="animate-fade-up flex flex-col gap-2 border-l-2 border-terracotta pl-4 [animation-delay:200ms] sm:flex-row sm:items-center sm:gap-4">
+            <span className="text-h4 leading-none font-bold whitespace-nowrap text-ink sm:text-h3">{partnerHero.highlight.value}</span>
+            <span className="max-w-xs text-small text-graphite/80">{partnerHero.highlight.label}</span>
           </div>
 
           <div className="animate-fade-up flex w-full flex-col gap-4 [animation-delay:240ms] sm:w-auto sm:flex-row sm:flex-wrap">
@@ -126,7 +126,7 @@ function PartnerHero() {
 
 function Benefits() {
   return (
-    <section id="beneficios" aria-labelledby="beneficios-title" className="py-24 md:py-32">
+    <section id="beneficios" aria-labelledby="beneficios-title" className="py-16 sm:py-24 md:py-32">
       <div className="container-page">
         <Reveal as="header" className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
           <SectionLabel>{partnerBenefits.eyebrow}</SectionLabel>
@@ -135,7 +135,7 @@ function Benefits() {
           </h2>
         </Reveal>
 
-        <RevealGroup as="ul" className="mt-14 grid gap-px overflow-hidden rounded-card border border-line bg-line md:mt-20 md:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup as="ul" className="mt-10 grid sm:mt-14 gap-px overflow-hidden rounded-card border border-line bg-line md:mt-20 md:grid-cols-2 lg:grid-cols-3">
           {partnerBenefits.items.map((b, i) => (
             <RevealItem as="li" key={b.title} className="flex flex-col gap-3 bg-paper p-7 md:p-9">
               <span className="text-small font-medium text-terracotta tabular-nums">0{i + 1}</span>
@@ -151,7 +151,7 @@ function Benefits() {
 
 function Steps() {
   return (
-    <section id="como-funciona" aria-labelledby="passos-title" className="bg-ink py-24 text-paper md:py-32">
+    <section id="como-funciona" aria-labelledby="passos-title" className="bg-ink py-16 text-paper sm:py-24 md:py-32">
       <div className="container-page">
         <Reveal as="header" className="flex max-w-3xl flex-col gap-4">
           <SectionLabel inverted>{partnerSteps.eyebrow}</SectionLabel>
@@ -160,7 +160,7 @@ function Steps() {
           </h2>
         </Reveal>
 
-        <RevealGroup as="ol" className="mt-14 grid border-t border-paper/15 md:mt-20 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+        <RevealGroup as="ol" className="mt-10 grid sm:mt-14 border-t border-paper/15 md:mt-20 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
           {partnerSteps.items.map((s, i) => (
             <RevealItem
               as="li"
@@ -187,7 +187,7 @@ function Steps() {
 
 function Profile() {
   return (
-    <section id="perfil" aria-labelledby="perfil-title" className="py-24 md:py-32">
+    <section id="perfil" aria-labelledby="perfil-title" className="py-16 sm:py-24 md:py-32">
       <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-8">
         <Reveal as="header" className="flex flex-col items-start gap-4 lg:col-span-5">
           <SectionLabel>{partnerProfile.eyebrow}</SectionLabel>
@@ -218,7 +218,7 @@ function Profile() {
 
 function Faq() {
   return (
-    <section id="duvidas" aria-labelledby="duvidas-title" className="bg-cream py-24 md:py-32">
+    <section id="duvidas" aria-labelledby="duvidas-title" className="bg-cream py-16 sm:py-24 md:py-32">
       <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-8">
         <Reveal as="header" className="flex flex-col items-start gap-4 lg:col-span-4">
           <SectionLabel>{partnerFaq.eyebrow}</SectionLabel>
@@ -250,7 +250,7 @@ function Faq() {
 
 function PartnerContact() {
   return (
-    <section id="contato" aria-labelledby="contato-title" className="py-24 md:py-32">
+    <section id="contato" aria-labelledby="contato-title" className="py-16 sm:py-24 md:py-32">
       <div className="container-page">
         <div className="relative overflow-hidden rounded-card bg-graphite px-6 py-14 text-paper md:px-14 md:py-20">
           <div aria-hidden="true" className="absolute -top-40 -right-40 size-[28rem] rounded-full border border-paper/10" />

@@ -45,7 +45,7 @@ const layout: Record<Item["id"], string> = {
 /** Seção 3: as quatro funcionalidades, cada uma com a tela real correspondente. */
 export function Features() {
   return (
-    <section id="funcionalidades" aria-labelledby="funcionalidades-title" className="bg-cream py-24 md:py-32">
+    <section id="funcionalidades" aria-labelledby="funcionalidades-title" className="bg-cream py-16 sm:py-24 md:py-32">
       <div className="container-page">
         <Reveal as="header" className="flex max-w-3xl flex-col gap-4">
           <SectionLabel>{features.eyebrow}</SectionLabel>
@@ -54,7 +54,13 @@ export function Features() {
           </h2>
         </Reveal>
 
-        <RevealGroup as="ol" className="mt-14 grid gap-5 md:mt-20 md:grid-cols-2 md:gap-6 lg:grid-cols-12">
+        <p className="mt-6 text-sm text-muted md:hidden" aria-hidden="true">
+          Arraste para o lado para ver todas →
+        </p>
+        <RevealGroup
+          as="ol"
+          className="-mx-4 mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] md:mx-0 md:mt-20 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-12 [&::-webkit-scrollbar]:hidden"
+        >
           {features.items.map((item, i) => {
             const dark = item.id === "comanda";
             return (
@@ -62,7 +68,7 @@ export function Features() {
                 as="li"
                 key={item.id}
                 className={cn(
-                  "group flex flex-col overflow-hidden rounded-card border",
+                  "group flex w-[85%] shrink-0 snap-start flex-col overflow-hidden rounded-card border sm:w-[60%] md:w-auto",
                   dark ? "border-ink" : "border-line",
                   layout[item.id],
                 )}

@@ -102,10 +102,10 @@ export default function Home() {
       <main id="conteudo" tabIndex={-1} className="outline-none">
         <Hero />
         <About />
+        <VideoShowcase />
         <Features />
         <HowItWorks />
         <Pillars />
-        <VideoShowcase />
         <Integration />
         <Hiring />
         <Contact />

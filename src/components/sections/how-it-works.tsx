@@ -17,7 +17,7 @@ export function HowItWorks() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
 
   return (
-    <section id="como-funciona" aria-labelledby="como-funciona-title" className="py-24 md:py-32">
+    <section id="como-funciona" aria-labelledby="como-funciona-title" className="py-16 sm:py-24 md:py-32">
       <div className="container-page">
         <Reveal as="header" className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
           <SectionLabel>{steps.eyebrow}</SectionLabel>
@@ -26,7 +26,7 @@ export function HowItWorks() {
           </h2>
         </Reveal>
 
-        <ol ref={listRef} className="relative mt-16 grid gap-12 md:mt-20 md:grid-cols-2 md:gap-x-8 md:gap-y-14 lg:grid-cols-4 lg:gap-6">
+        <ol ref={listRef} className="relative mt-10 grid gap-8 sm:mt-16 sm:gap-12 md:mt-20 md:grid-cols-2 md:gap-x-8 md:gap-y-14 lg:grid-cols-4 lg:gap-6">
           {/* Linha de progresso: horizontal no desktop, vertical no celular */}
           <div aria-hidden="true" className="absolute top-0 bottom-0 left-5 w-px bg-line md:hidden">
             <m.div className="h-full w-full origin-top bg-terracotta" style={reduce ? undefined : { scaleY: progress }} />
@@ -44,7 +44,7 @@ export function HowItWorks() {
                 <RealScreen
                   src={s.screen}
                   alt={`Tela real do fred.o: ${s.title}`}
-                  className="w-full max-w-[16rem] transition-transform lg:max-w-[17rem] duration-300 ease-soft hover:scale-[1.02] motion-reduce:hover:scale-100"
+                  className="hidden w-full max-w-[16rem] transition-transform md:block lg:max-w-[17rem] duration-300 ease-soft hover:scale-[1.02] motion-reduce:hover:scale-100"
                   sizes="17rem"
                 />
                 <div>

@@ -4,12 +4,21 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, m } from "motion/react";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
+import { externalLinkProps } from "@/lib/whatsapp";
+import { WhatsAppIcon } from "./whatsapp-icon";
 
 /**
  * Botão flutuante "Encontre uma revenda" (canto inferior direito), leva à busca por CEP.
  * Some enquanto o formulário de contato está na tela, para não cobrir o envio.
  */
-export function WhatsAppFloat() {
+type FloatCta = { href: string; label: string };
+
+/**
+ * No celular o topo não tem espaço para o botão de destaque, então ele fica aqui,
+ * na área do polegar. A partir de 640px o botão aparece no topo e este some.
+ */
+export function WhatsAppFloat({ cta = { href: "/fredo/revendas", label: "Encontre uma revenda" } }: { cta?: FloatCta } = {}) {
+  const externo = /^https?:\/\//.test(cta.href);
   const [formVisible, setFormVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,16 +48,20 @@ export function WhatsAppFloat() {
           initial={{ opacity: 0, y: 16, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] } }}
           exit={{ opacity: 0, y: 16, scale: 0.96, transition: { duration: 0.25 } }}
-          className="fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 md:right-6 md:bottom-6"
+          className="fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 sm:hidden"
         >
           <Link
-            href="/fredo/revendas"
-            className="group flex items-center gap-2.5 rounded-full bg-ink py-1.5 pr-4 pl-1.5 text-sm font-semibold sm:gap-3 sm:py-2 sm:pr-5 sm:pl-2 sm:text-small text-paper shadow-lift transition-[background-color,transform] duration-300 ease-soft hover:scale-[1.02] hover:bg-graphite motion-reduce:hover:scale-100"
+            href={cta.href}
+            {...(externo ? externalLinkProps : {})}
+            className="flex min-h-13 w-full items-center justify-center gap-2.5 rounded-full bg-terracotta px-5 text-small font-semibold text-paper shadow-lift ring-1 ring-paper/30 transition-colors duration-300 ease-soft active:bg-graphite"
           >
-          <span className="flex size-9 items-center justify-center rounded-full bg-terracotta text-paper sm:size-10">
-            <MapPin className="size-5" strokeWidth={1.75} aria-hidden="true" />
-          </span>
-          <span>Encontre uma revenda</span>
+            {externo ? (
+              <WhatsAppIcon className="size-5" />
+            ) : (
+              <MapPin className="size-5" strokeWidth={1.75} aria-hidden="true" />
+            )}
+            <span>{cta.label}</span>
+            {externo && <span className="sr-only"> (abre o WhatsApp em nova aba)</span>}
           </Link>
         </m.div>
       )}

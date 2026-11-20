@@ -24,7 +24,7 @@ function FlowLink({ vertical }: { vertical?: boolean }) {
 /** Seção 7: o conceito de integração com o PDV (sem citar sistemas homologados). */
 export function Integration() {
   return (
-    <section id="integracao" aria-labelledby="integracao-title" className="bg-cream py-24 md:py-32">
+    <section id="integracao" aria-labelledby="integracao-title" className="bg-cream py-16 sm:py-24 md:py-32">
       <div className="container-page grid gap-14 lg:grid-cols-12 lg:gap-8">
         <div className="flex flex-col items-start gap-6 lg:col-span-5">
           <Reveal as="header" className="flex flex-col gap-4">

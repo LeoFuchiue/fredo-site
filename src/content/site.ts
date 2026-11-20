@@ -21,9 +21,9 @@ export const site = {
 
 export const nav = [
   { href: "/#conheca", label: "O fred.o" },
+  { href: "/#video", label: "Vídeo" },
   { href: "/#funcionalidades", label: "Funcionalidades" },
   { href: "/#como-funciona", label: "Como funciona" },
-  { href: "/#video", label: "Vídeo" },
   { href: "/#integracao", label: "Integração" },
   { href: "/#contratacao", label: "Contratação" },
 ] as const;
@@ -40,8 +40,8 @@ export const hero = {
   title: "Automatize a pesagem do seu restaurante com o fred.o.",
   subtitle:
     "O robô que pesa o prato, pede a comanda e manda o valor direto para o caixa. Sem fila e sem funcionário parado na balança do seu self-service.",
-  primaryCta: { href: "#como-funciona", label: "Veja como funciona" },
-  secondaryCta: reseller,
+  primaryCta: reseller,
+  secondaryCta: { href: "#video", label: "Ver o fred.o em ação" },
 };
 
 // 2 — Conheça o fred.o

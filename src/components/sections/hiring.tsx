@@ -7,7 +7,7 @@ import { ButtonLink } from "../ui";
 /** Seção 8: modelo Hardware as a Service, sem preços nem prazos. */
 export function Hiring() {
   return (
-    <section id="contratacao" aria-labelledby="contratacao-title" className="py-24 md:py-32">
+    <section id="contratacao" aria-labelledby="contratacao-title" className="py-16 sm:py-24 md:py-32">
       <div className="container-page">
         <div className="relative overflow-hidden rounded-card bg-graphite px-6 py-14 text-paper md:px-14 md:py-20">
           {/* Círculos finos da linguagem da marca */}

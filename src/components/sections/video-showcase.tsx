@@ -78,7 +78,7 @@ export function VideoShowcase() {
       ref={sectionRef}
       id="video"
       aria-labelledby="video-title"
-      className="relative overflow-hidden py-24 md:py-32"
+      className="relative overflow-hidden py-16 sm:py-24 md:py-32"
     >
       <div className="container-page">
         <Reveal as="header" className="mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center md:mb-16">

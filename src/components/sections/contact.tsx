@@ -11,7 +11,7 @@ import { buttonBase, buttonVariants, cn } from "../ui";
  */
 export function Contact() {
   return (
-    <section id="contato" aria-labelledby="contato-title" className="bg-cream py-20 md:py-28 lg:py-32">
+    <section id="contato" aria-labelledby="contato-title" className="bg-cream py-16 sm:py-20 md:py-28 lg:py-32">
       <div className="container-page grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-8">
         <Reveal className="flex flex-col items-start gap-6 lg:col-span-5">
           <SectionLabel>{contact.eyebrow}</SectionLabel>

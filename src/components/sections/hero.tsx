@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative overflow-hidden bg-cream pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-36 lg:pb-28"
+      className="relative overflow-hidden bg-cream pt-24 pb-12 md:pt-32 md:pb-24 lg:pt-36 lg:pb-28"
     >
       {/* Profundidade: luz branca suave atrás do produto */}
       <div
@@ -21,15 +21,15 @@ export function Hero() {
       />
 
       <div className="container-page relative grid items-center gap-10 md:grid-cols-12 md:gap-6 lg:gap-8">
-        <div className="order-1 md:order-2 md:col-span-5 lg:col-span-6">
+        <div className="order-2 md:col-span-5 lg:col-span-6">
           <FredoProductHero
             tone="light"
             priority
-            className="max-w-[15rem] sm:max-w-[18rem] md:max-w-[19rem] lg:max-w-[30rem] xl:max-w-[34rem]"
+            className="max-w-[11rem] sm:max-w-[15rem] md:max-w-[19rem] lg:max-w-[30rem] xl:max-w-[34rem]"
           />
         </div>
 
-        <div className="order-2 flex flex-col items-start gap-6 md:order-1 md:col-span-7 lg:col-span-6 lg:gap-8">
+        <div className="order-1 flex flex-col items-start gap-6 md:col-span-7 lg:col-span-6 lg:gap-8">
           <Signature className="animate-fade-in text-small md:text-body" />
 
           <h1

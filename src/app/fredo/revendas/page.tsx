@@ -27,7 +27,7 @@ export default function RevendasPage() {
       <main id="conteudo" tabIndex={-1} className="outline-none">
         <section
           aria-labelledby="revendas-title"
-          className="relative overflow-hidden bg-cream pt-28 pb-16 md:pt-36 md:pb-20 lg:pt-40"
+          className="relative overflow-hidden bg-cream pt-24 pb-14 md:pt-36 md:pb-20 lg:pt-40"
         >
           <div aria-hidden="true" className="absolute -top-40 -right-40 size-[34rem] rounded-full border border-ink/5" />
           <div aria-hidden="true" className="absolute -top-16 -right-16 size-[20rem] rounded-full border border-ink/5" />
@@ -50,20 +50,17 @@ export default function RevendasPage() {
               Digite o CEP do seu restaurante. A revenda da sua região mostra o fred.o funcionando, tira suas
               dúvidas, apresenta as condições de locação, faz a instalação e cuida do seu atendimento.
             </p>
-          </div>
-        </section>
-
-        <section aria-label="Busca de revendas" className="py-14 md:py-20">
-          <div className="container-page">
-            <ResellerFinder />
-            <p className="mt-10 max-w-2xl text-sm text-muted">
+            <div className="animate-fade-up mt-2 w-full [animation-delay:220ms]">
+              <ResellerFinder />
+            </div>
+            <p className="mt-4 max-w-2xl text-sm text-muted">
               Usamos o CEP só para encontrar as revendas próximas. Ele é consultado em um serviço público de CEP e
               não fica salvo no site.
             </p>
           </div>
         </section>
 
-        <section aria-labelledby="seja-parceiro-title" className="pb-24 md:pb-32">
+        <section aria-labelledby="seja-parceiro-title" className="py-16 md:py-24">
           <div className="container-page">
             <Reveal className="flex flex-col items-start justify-between gap-6 rounded-card bg-graphite px-6 py-10 text-paper md:flex-row md:items-center md:px-12">
               <div className="flex flex-col gap-2">
@@ -76,7 +73,7 @@ export default function RevendasPage() {
               </div>
               <Link
                 href="/fredo/parceiro"
-                className="inline-flex min-h-13 items-center rounded-button bg-paper px-7 font-semibold text-ink transition-colors duration-300 hover:bg-terracotta hover:text-paper"
+                className="inline-flex min-h-13 w-full items-center justify-center rounded-button bg-paper px-7 sm:w-auto font-semibold text-ink transition-colors duration-300 hover:bg-terracotta hover:text-paper"
               >
                 Quero ser parceiro
               </Link>

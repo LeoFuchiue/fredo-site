@@ -87,7 +87,7 @@ export function Header({
             ))}
           </ul>
 
-          <div className="hidden lg:mr-3 lg:ml-auto lg:block xl:mr-0 xl:ml-0">
+          <div className="hidden sm:mr-3 sm:ml-auto sm:block xl:mr-0 xl:ml-0">
             <ButtonLink href={cta.href} whatsapp={externo} className="min-h-11 px-5 text-small">
               {cta.label}
             </ButtonLink>

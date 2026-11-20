@@ -5,7 +5,7 @@ import { Reveal, RevealGroup, RevealItem } from "../reveal";
 /** Seção 5: os três ganhos concretos do fred.o, em composição tipográfica. */
 export function Pillars() {
   return (
-    <section id="diferenciais" aria-labelledby="diferenciais-title" className="bg-ink py-24 text-paper md:py-32">
+    <section id="diferenciais" aria-labelledby="diferenciais-title" className="bg-ink py-16 text-paper sm:py-24 md:py-32">
       <div className="container-page">
         <Reveal as="header" className="flex max-w-3xl flex-col gap-4">
           <SectionLabel inverted>{pillars.eyebrow}</SectionLabel>
@@ -14,7 +14,7 @@ export function Pillars() {
           </h2>
         </Reveal>
 
-        <RevealGroup as="ol" className="mt-14 grid border-t border-paper/15 md:mt-20 lg:grid-cols-3" stagger={0.1}>
+        <RevealGroup as="ol" className="mt-10 grid sm:mt-14 border-t border-paper/15 md:mt-20 lg:grid-cols-3" stagger={0.1}>
           {pillars.items.map((p, i) => (
             <RevealItem
               as="li"
