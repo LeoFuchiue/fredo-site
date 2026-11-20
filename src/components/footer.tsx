@@ -12,7 +12,7 @@ export async function Footer() {
         <div className="flex max-w-xs flex-col items-start gap-4">
           <Logo inverted />
           <p className="text-small text-paper/70">
-            O robô de pesagem para restaurantes self-service por quilo.
+            fred.o (a gente fala “Fredo”): o robô de pesagem para restaurantes self-service por quilo.
           </p>
           <Signature inverted className="text-[0.75rem] tracking-[0.2em]" />
           <a

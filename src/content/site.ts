@@ -12,9 +12,11 @@ export const site = {
   name: "fred.o",
   // trim() remove espaços e caracteres invisíveis que às vezes vêm junto ao colar a variável
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").trim().replace(/\/+$/, ""),
-  title: "fred.o | Robô Inteligente para Restaurantes por Quilo",
+  title: "fred.o (Fredo) | Robô de pesagem para restaurantes self-service",
   description:
-    "Conheça o fred.o, o robô de pesagem autônoma para restaurantes self-service: lê o peso, pede a comanda e envia o valor direto para o PDV. Fale com uma revenda autorizada perto de você.",
+    "Conheça o fred.o (Fredo), o robô de pesagem autônoma para restaurantes self-service e por quilo: lê o peso, pede a comanda e envia o valor direto para o PDV. Encontre uma revenda perto de você.",
+  /** Outros jeitos de escrever a marca (o Google usa para entender buscas como "fredo"). */
+  alternateNames: ["Fredo", "fred o", "Fred.o", "Fredo robô de pesagem", "robô fred.o"],
   locale: "pt_BR",
   signature: ["Rapidez", "Precisão", "Economia"],
 } as const;

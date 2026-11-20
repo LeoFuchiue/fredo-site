@@ -27,6 +27,17 @@ export const metadata: Metadata = {
   creator: site.name,
   publisher: site.name,
   category: "technology",
+  keywords: [
+    "fred.o",
+    "Fredo",
+    "robô de pesagem",
+    "pesagem autônoma",
+    "balança self-service",
+    "restaurante por quilo",
+    "automação para restaurante",
+    "comanda",
+    "PDV",
+  ],
   openGraph: {
     type: "website",
     locale: site.locale,
