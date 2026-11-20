@@ -52,10 +52,10 @@ export default function RevendasPage() {
                 perto de você.
               </h1>
               <p className="animate-fade-up text-pretty text-body text-graphite/80 [animation-delay:160ms]">
-                Preencha os dados do seu restaurante. A nossa equipe encaminha o seu pedido para a revenda autorizada da sua
-                região, que entra em contato para mostrar o fred.o funcionando e apresentar as condições.
+                Preencha os dados do seu restaurante. A nossa equipe encaminha para a revenda autorizada da sua região, que
+                entra em contato para mostrar o fred.o funcionando.
               </p>
-              <ol className="animate-fade-up flex flex-col gap-3 text-small text-graphite [animation-delay:220ms]">
+              <ol className="animate-fade-up hidden flex-col gap-3 text-small lg:flex text-graphite [animation-delay:220ms]">
                 {[
                   "Você preenche e envia pelo WhatsApp",
                   "A gente encaminha para a revenda da sua região",
@@ -69,7 +69,9 @@ export default function RevendasPage() {
                   </li>
                 ))}
               </ol>
-              <FredoSays>Leva menos de 2 minutos!</FredoSays>
+              <div className="hidden lg:block">
+                <FredoSays>Leva menos de 2 minutos!</FredoSays>
+              </div>
             </div>
             <div className="animate-fade-up [animation-delay:200ms] lg:col-span-8">
               <LeadForm />
