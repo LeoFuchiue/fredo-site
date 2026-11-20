@@ -2,7 +2,7 @@
  * Conteúdo da página "Seja um parceiro fred.o" (/fredo/parceiro).
  *
  * Fonte: contrato de parceria comercial e revenda do fred.o. Parceria não exclusiva,
- * sem metas mínimas; a fred.o contrata e fatura o restaurante direto e o parceiro
+ * sem metas mínimas; nós contratamos e faturamos o restaurante direto e o parceiro
  * recebe comissão recorrente sobre as mensalidades pagas pelos clientes que trouxe.
  *
  * Regra: NÃO publicar o percentual nem valores da comissão. A página desperta a
@@ -44,15 +44,15 @@ export const partnerBenefits = {
     },
     {
       title: "Sem estoque e sem compra",
-      text: "O equipamento é da fred.o. Você não compra robôs para revender nem empata dinheiro em estoque.",
+      text: "O equipamento continua sendo nosso. Você não compra robôs para revender nem empata dinheiro em estoque.",
     },
     {
       title: "Sem cobrar o cliente",
-      text: "A fred.o fecha o contrato, emite a cobrança e recebe do restaurante. Você foca em vender e instalar.",
+      text: "Nós fechamos o contrato, emitimos a cobrança e recebemos do restaurante. Você foca em vender e instalar.",
     },
     {
       title: "Treinamento e suporte",
-      text: "Você recebe documentação, orientação técnica e treinamento inicial, além de um canal de suporte da equipe fred.o.",
+      text: "Você recebe documentação, orientação técnica e treinamento inicial, além de um canal de suporte direto com a nossa equipe.",
     },
     {
       title: "Liberdade para trabalhar",
@@ -79,11 +79,11 @@ export const partnerSteps = {
     },
     {
       title: "Indicação",
-      text: "Você prospecta restaurantes e registra cada oportunidade com a fred.o, para garantir que o cliente fica atribuído a você.",
+      text: "Você prospecta restaurantes e registra cada oportunidade com a nossa equipe, para garantir que o cliente fica atribuído a você.",
     },
     {
       title: "Contrato",
-      text: "A fred.o aprova a proposta e fecha o contrato de locação direto com o restaurante.",
+      text: "Nós aprovamos a proposta e fechamos o contrato de locação direto com o restaurante.",
     },
     {
       title: "Instalação",
@@ -116,11 +116,11 @@ export const partnerFaq = {
   items: [
     {
       q: "Preciso comprar equipamentos para revender?",
-      a: "Não. O fred.o é oferecido em locação mensal e o equipamento continua sendo da fred.o. Você não compra nem mantém estoque.",
+      a: "Não. O fred.o é oferecido em locação mensal e o equipamento continua sendo nosso. Você não compra nem mantém estoque.",
     },
     {
       q: "Quem cobra o restaurante?",
-      a: "A fred.o. O contrato e a cobrança são feitos direto com o restaurante. O parceiro não recebe mensalidades nem concede descontos por conta própria.",
+      a: "Nós. O contrato e a cobrança são feitos direto entre a nossa empresa e o restaurante. Assim, você não precisa se preocupar em cobrar mensalidades nem negociar descontos: seu foco fica em vender e instalar.",
     },
     {
       q: "Como a comissão é calculada?",
@@ -140,7 +140,7 @@ export const partnerFaq = {
     },
     {
       q: "O fred.o funciona com qualquer sistema de caixa?",
-      a: "O fred.o funciona integrado a sistemas de PDV e balanças homologados pela fred.o. Antes de cada venda, a nossa equipe confirma se o sistema do restaurante é compatível.",
+      a: "O fred.o funciona integrado a sistemas de PDV e balanças homologados, ou seja, já testados e aprovados pela nossa equipe. Antes de cada venda, confirmamos se o sistema do restaurante é compatível.",
     },
   ],
 } as const;
