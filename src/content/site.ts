@@ -22,7 +22,6 @@ export const site = {
 export const nav = [
   { href: "/#conheca", label: "O fred.o" },
   { href: "/#como-funciona", label: "Como funciona" },
-  { href: "/#economia", label: "Economia" },
   { href: "/#contratacao", label: "Contratação" },
   { href: "/#duvidas", label: "Dúvidas" },
   { href: "/fredo/parceiro", label: "Seja parceiro" },
@@ -160,16 +159,6 @@ export const videoShowcase = {
   transcript:
     "Vídeo: Hora do almoço. Fila na balança? Oi! Eu sou o fred.o, o robô de pesagem autônoma para restaurantes self-service. Como funciona: 1. Prato na balança: o cliente se serve e pesa. 2. fred.o lê o peso e pede para bipar a comanda. 3. Valor direto no caixa, integrado ao seu PDV. Pesagem 100% autônoma. Sem fila. Sem funcionário na balança.",
   cta: reseller,
-} as const;
-
-// 6b — Calculadora de economia (não mostra preço do fred.o)
-export const savings = {
-  eyebrow: "Economia",
-  title: "Quanto custa manter alguém só na balança?",
-  text: "Coloque o custo mensal de quem fica na pesagem (salário, encargos e benefícios) e veja quanto o seu restaurante pode redirecionar para o salão, a cozinha ou o caixa.",
-  says: "Faz a conta comigo!",
-  note: "Estimativa simples, só com os números que você informou. A revenda apresenta o valor da locação do fred.o para comparar.",
-  cta: { href: "/fredo/revendas", label: "Comparar com uma revenda" },
 } as const;
 
 // 9b — Dúvidas do restaurante (respostas alinhadas ao contrato de locação)

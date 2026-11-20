@@ -4,7 +4,6 @@ import { Header } from "@/components/header";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
 import { Faq } from "@/components/sections/faq";
-import { Savings } from "@/components/sections/savings";
 import { Hero } from "@/components/sections/hero";
 import { Hiring } from "@/components/sections/hiring";
 import { HowItWorks } from "@/components/sections/how-it-works";
@@ -114,7 +113,6 @@ export default function Home() {
         <VideoShowcase />
         <HowItWorks />
         <Pillars />
-        <Savings />
         <Hiring />
         <Faq />
         <Contact />
