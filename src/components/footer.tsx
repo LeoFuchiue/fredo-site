@@ -43,7 +43,7 @@ export async function Footer() {
       </div>
       <div className="border-t border-paper/10">
         <div className="container-page flex flex-col gap-2 py-6 text-small text-paper/60 sm:flex-row sm:justify-between">
-          <p>© {new Date().getFullYear()} Fredo. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} fred.o. Todos os direitos reservados.</p>
           <a href="#conteudo" className="transition-colors duration-300 hover:text-paper">
             Voltar ao topo ↑
           </a>

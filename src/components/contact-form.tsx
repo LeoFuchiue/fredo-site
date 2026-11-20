@@ -24,6 +24,7 @@ const fields: {
 }[] = [
   { name: "name", label: "Nome", placeholder: "Seu nome", autoComplete: "name" },
   { name: "restaurant", label: "Nome do restaurante", placeholder: "Nome do restaurante", autoComplete: "organization" },
+  { name: "city", label: "Cidade / UF", placeholder: "Ex.: Atibaia / SP", autoComplete: "address-level2" },
   { name: "whatsapp", label: "WhatsApp", placeholder: "(11) 90000-0000", autoComplete: "tel", type: "tel", inputMode: "tel" },
   { name: "pos", label: "Sistema de PDV utilizado", placeholder: "Nome do sistema ou “não uso”", autoComplete: "off" },
 ];
@@ -32,6 +33,7 @@ function validate(d: DemoRequest): Errors {
   const e: Errors = {};
   if (d.name.length < 2) e.name = "Informe o seu nome.";
   if (d.restaurant.length < 2) e.restaurant = "Informe o nome do restaurante.";
+  if (d.city.length < 2) e.city = "Informe a cidade do restaurante.";
   const digits = d.whatsapp.replace(/\D/g, "");
   if (digits.length < 10 || digits.length > 13) e.whatsapp = "Informe um WhatsApp com DDD.";
   if (d.pos.length < 2) e.pos = "Informe o sistema de PDV (ou “não uso”).";
@@ -39,7 +41,7 @@ function validate(d: DemoRequest): Errors {
 }
 
 /**
- * Formulário de demonstração: valida no navegador e abre o WhatsApp oficial
+ * Formulário "Encontre uma revenda": valida no navegador e abre o WhatsApp oficial
  * com os dados preenchidos. Nada é enviado ao servidor nem armazenado.
  */
 export function ContactForm() {
@@ -50,11 +52,12 @@ export function ContactForm() {
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    track("solicitar_demonstracao_click");
+    track("encontrar_revenda_form_click");
     const fd = new FormData(e.currentTarget);
     const data: DemoRequest = {
       name: String(fd.get("name") ?? "").trim().slice(0, 120),
       restaurant: String(fd.get("restaurant") ?? "").trim().slice(0, 160),
+      city: String(fd.get("city") ?? "").trim().slice(0, 120),
       whatsapp: String(fd.get("whatsapp") ?? "").trim().slice(0, 40),
       pos: String(fd.get("pos") ?? "").trim().slice(0, 120),
     };
@@ -125,7 +128,7 @@ export function ContactForm() {
 
         <button type="submit" className={cn(buttonBase, buttonVariants.primary, "mt-2 w-full")}>
           <WhatsAppIcon className="size-5 shrink-0" />
-          Solicitar demonstração
+          Encontrar minha revenda
           <span className="sr-only"> (abre o WhatsApp em nova aba)</span>
         </button>
 

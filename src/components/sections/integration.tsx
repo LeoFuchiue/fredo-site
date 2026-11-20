@@ -46,14 +46,14 @@ export function Integration() {
           </Reveal>
         </div>
 
-        {/* Fluxo: Balança → Fred.o → Comanda → PDV compatível */}
+        {/* Fluxo: Balança → fred.o → Comanda → PDV compatível */}
         <RevealGroup
           as="ol"
           className="flex flex-col items-stretch self-center md:flex-row md:items-center md:gap-3 lg:col-span-7"
           stagger={0.1}
         >
           {integration.flow.map((step, i) => {
-            const fredo = step === "Fred.o";
+            const fredo = step === "fred.o";
             return (
               <Fragment key={step}>
                 {i > 0 && (

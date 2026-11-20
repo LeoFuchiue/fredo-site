@@ -11,9 +11,9 @@ import { ButtonLink, Logo, cn } from "./ui";
 
 type HeaderCta = { href: string; label: string };
 
-/** `cta`: botão de destaque do topo. Padrão: agendar demonstração pelo WhatsApp. */
+/** `cta`: botão de destaque do topo. Padrão: encontrar uma revenda pelo WhatsApp. */
 export function Header({
-  cta = { href: whatsappHref("demo"), label: "Agendar demonstração" },
+  cta = { href: whatsappHref("demo"), label: "Encontre uma revenda" },
 }: { cta?: HeaderCta } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -66,7 +66,7 @@ export function Header({
           aria-label="Principal"
           className="container-page flex h-16 items-center justify-between md:h-20"
         >
-          <Link href="/" aria-label="Fred.o, página inicial" className="rounded-button">
+          <Link href="/" aria-label="fred.o, página inicial" className="rounded-button">
             <Logo />
           </Link>
 
@@ -76,7 +76,7 @@ export function Header({
                 <a
                   href={item.href}
                   className={cn(
-                    "relative px-3 py-2 text-small font-medium transition-colors duration-300 hover:text-terracotta xl:px-4",
+                    "relative px-3 py-2 text-small font-medium whitespace-nowrap transition-colors duration-300 hover:text-terracotta lg:px-2 xl:px-4",
                     "text-graphite",
                   )}
                 >

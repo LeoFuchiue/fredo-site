@@ -1,5 +1,5 @@
 /**
- * WhatsApp comercial do Fred.o: número e mensagens em um só lugar.
+ * WhatsApp comercial do fred.o: número e mensagens em um só lugar.
  * Para trocar o número, altere só WHATSAPP_NUMBER (DDI + DDD + número, só dígitos).
  */
 export const WHATSAPP_NUMBER = "5511977842164";
@@ -7,8 +7,9 @@ export const WHATSAPP_DISPLAY = "+55 11 97784-2164";
 
 export const WHATSAPP_MESSAGES = {
   /** Mensagem padrão dos botões comerciais. */
-  demo: "Olá! Conheci o Fred.o pelo site e gostaria de saber mais sobre o equipamento e agendar uma demonstração.",
-  commercial: "Olá! Gostaria de receber mais informações sobre o Fred.o e suas condições de contratação.",
+  /** Restaurante procurando a revenda mais próxima. */
+  demo: "Olá! Conheci o fred.o pelo site e quero falar com uma revenda perto de mim para ver o fred.o funcionando. Minha cidade é: ",
+  commercial: "Olá! Quero saber as condições de locação do fred.o com uma revenda da minha região. Minha cidade é: ",
   partner: "Olá! Vi a página de parceiros do fred.o e quero saber quanto posso ganhar como parceiro.",
 } as const;
 
@@ -32,17 +33,19 @@ export const externalLinkProps = {
 export type DemoRequest = {
   name: string;
   restaurant: string;
+  city: string;
   whatsapp: string;
   pos: string;
 };
 
-/** Mensagem de pedido de demonstração com os dados do formulário. */
+/** Pedido de indicação de revenda, com os dados do formulário. */
 export function demoRequestMessage(d: DemoRequest): string {
   return [
-    WHATSAPP_MESSAGES.demo,
+    "Olá! Conheci o fred.o pelo site e quero falar com uma revenda perto de mim.",
     "",
     `Nome: ${d.name}`,
     `Restaurante: ${d.restaurant}`,
+    `Cidade/UF: ${d.city}`,
     `WhatsApp: ${d.whatsapp}`,
     `Sistema de PDV: ${d.pos}`,
   ].join("\n");

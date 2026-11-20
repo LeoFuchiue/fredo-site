@@ -43,7 +43,7 @@ export function HowItWorks() {
               <div className="flex flex-col gap-5 lg:items-center">
                 <RealScreen
                   src={s.screen}
-                  alt={`Tela real do Fred.o: ${s.title}`}
+                  alt={`Tela real do fred.o: ${s.title}`}
                   className="w-full max-w-[16rem] transition-transform lg:max-w-[17rem] duration-300 ease-soft hover:scale-[1.02] motion-reduce:hover:scale-100"
                   sizes="17rem"
                 />

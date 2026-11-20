@@ -6,7 +6,7 @@ import { FredoScreen, SectionLabel } from "../brand";
 import { Reveal, RevealGroup, RevealItem } from "../reveal";
 import { ButtonLink } from "../ui";
 
-/** Seção 2: o que é o Fred.o. Foto real em estúdio + texto curto. */
+/** Seção 2: o que é o fred.o. Foto real em estúdio + texto curto. */
 export function About() {
   return (
     <section id="conheca" aria-labelledby="conheca-title" className="py-24 md:py-32">
@@ -15,7 +15,7 @@ export function About() {
           <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-cream md:aspect-[4/5]">
             <Image
               src={studio}
-              alt="Fred.o em estúdio: robô branco com tela, corpo em formato de smoking com gravata-borboleta e o logo fred.o"
+              alt="fred.o em estúdio: robô branco com tela, corpo em formato de smoking com gravata-borboleta e o logo fred.o"
               sizes="(min-width: 1024px) 40rem, (min-width: 768px) 42vw, 100vw"
               className="h-full w-full object-cover"
             />
@@ -23,7 +23,7 @@ export function About() {
           {/* Detalhe real: a tela "sorrindo" */}
           <div className="absolute -bottom-6 left-4 w-32 rounded-card border border-line bg-paper p-2.5 shadow-lift sm:w-40 md:-left-4 md:w-36 lg:-left-6 lg:w-44 lg:p-3">
             <FredoScreen src="/fredo/visor/fredo-tela-olhos.webp" alt="" sizes="11rem" />
-            <p className="mt-2 text-center text-sm font-medium text-graphite">Oi! Eu sou o Fred.o</p>
+            <p className="mt-2 text-center text-sm font-medium text-graphite">Oi! Eu sou o fred.o</p>
           </div>
         </Reveal>
 

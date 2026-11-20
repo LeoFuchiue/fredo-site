@@ -47,7 +47,8 @@ export function Analytics() {
       const text = (link.textContent || link.getAttribute("aria-label") || "").replace(/\s+/g, " ").replace("(abre em nova aba)", "").trim();
       const where = locationOf(link);
       track("whatsapp_click", { cta_text: text.slice(0, 80), cta_location: where });
-      if (/agendar demonstra/i.test(text)) track("agendar_demonstracao_click", { cta_location: where });
+      if (/revenda/i.test(text)) track("encontrar_revenda_click", { cta_location: where });
+      if (/parceiro|quanto posso ganhar/i.test(text)) track("quero_ser_parceiro_click", { cta_location: where });
     };
     document.addEventListener("click", onClick, { capture: true });
     return () => document.removeEventListener("click", onClick, { capture: true });

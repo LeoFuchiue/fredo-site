@@ -43,7 +43,7 @@ export function Hiring() {
               </RevealGroup>
               <Reveal delay={0.1}>
                 <p className="text-small text-paper/70">
-                  Quer revender o Fred.o e ganhar comissão recorrente?{" "}
+                  Quer revender o fred.o e ganhar comissão recorrente?{" "}
                   <Link
                     href="/fredo/parceiro"
                     className="font-semibold text-paper underline decoration-terracotta underline-offset-4 transition-colors duration-300 hover:text-terracotta"

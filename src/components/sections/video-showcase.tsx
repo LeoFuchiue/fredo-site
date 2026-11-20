@@ -12,7 +12,7 @@ const controlBtn =
   "flex size-9 items-center justify-center rounded-full border border-paper/15 bg-ink/50 text-paper backdrop-blur-md transition-[background-color,border-color] duration-300 hover:border-paper/40 hover:bg-ink/70 md:size-11";
 
 /**
- * Vídeo do Fred.o em destaque.
+ * Vídeo do fred.o em destaque.
  * - cresce conforme a seção entra na tela (efeito cinema)
  * - toca sozinho, sem som, só enquanto está visível; pausa fora da tela
  * - o vídeo só é baixado quando a seção se aproxima (preload="none")

@@ -42,3 +42,7 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# Arquivos de sistema do Windows
+desktop.ini
+Thumbs.db

@@ -5,7 +5,7 @@ import { ContactForm } from "../contact-form";
 import { Reveal } from "../reveal";
 import { ButtonLink } from "../ui";
 
-/** Seção 9: contato comercial. Botão direto para o WhatsApp + formulário que abre o WhatsApp. */
+/** Seção 9: encontre uma revenda. Botão direto para o WhatsApp + formulário que abre o WhatsApp. */
 export function Contact() {
   return (
     <section id="contato" aria-labelledby="contato-title" className="bg-cream py-20 md:py-28 lg:py-32">
@@ -20,13 +20,13 @@ export function Contact() {
             {contact.cta.label}
           </ButtonLink>
           <p className="text-small text-muted">
-            WhatsApp comercial: <span className="font-medium text-graphite">{WHATSAPP_DISPLAY}</span>
+            WhatsApp: <span className="font-medium text-graphite">{WHATSAPP_DISPLAY}</span>
           </p>
         </Reveal>
 
         <Reveal delay={0.1} className="lg:col-span-7">
           <p className="mb-4 text-small font-medium text-graphite">
-            Prefere deixar seus dados? Preencha e continue pelo WhatsApp:
+            Preencha os dados e indicamos a revenda autorizada da sua região:
           </p>
           <ContactForm />
         </Reveal>

@@ -1,1 +1,1 @@
-Fredo, dispositivo conectado para restaurantes, em fundo escuro
+fred.o, robô de pesagem autônoma para restaurantes self-service

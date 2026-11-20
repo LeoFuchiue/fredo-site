@@ -38,7 +38,7 @@ export function SectionLabel({ children, inverted }: { children: React.ReactNode
 }
 
 /**
- * Tela real do Fred.o (foto tratada), na moldura escura do aparelho.
+ * Tela real do fred.o (foto tratada), na moldura escura do aparelho.
  * `aspect` padrão 5:3, a proporção da tela.
  */
 export function RealScreen({
@@ -68,7 +68,7 @@ export function RealScreen({
   );
 }
 
-/** Rosto do Fred.o (recorte do vídeo oficial), usado como elemento gráfico da marca. */
+/** Rosto do fred.o (recorte do vídeo oficial), usado como elemento gráfico da marca. */
 export function FredoScreen({
   src,
   alt,

@@ -18,7 +18,7 @@ function isWebKit() {
 }
 
 /**
- * Fred.o animado, extraído do vídeo institucional (a tela mostra olhos →
+ * fred.o animado, extraído do vídeo institucional (a tela mostra olhos →
  * leitura do peso → valor enviado ao PDV, em loop).
  *
  * 1. Mostra na hora a capa (primeiro quadro), que entra no LCP.

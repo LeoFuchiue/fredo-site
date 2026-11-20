@@ -78,9 +78,9 @@ const jsonLd = {
     {
       "@type": "VideoObject",
       "@id": `${url}/#video`,
-      name: "Fred.o em ação: pesagem autônoma no self-service",
+      name: "fred.o em ação: pesagem autônoma no self-service",
       description:
-        "Vídeo oficial do Fred.o: o cliente pesa o prato, o Fred.o lê o peso, pede para bipar a comanda e envia o valor para o caixa integrado ao PDV.",
+        "Vídeo oficial do fred.o: o cliente pesa o prato, o fred.o lê o peso, pede para bipar a comanda e envia o valor para o caixa integrado ao PDV.",
       thumbnailUrl: [`${url}${videoShowcase.poster}`],
       contentUrl: `${url}${videoShowcase.src}`,
       uploadDate: "2026-11-07",

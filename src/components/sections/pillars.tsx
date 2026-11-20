@@ -2,7 +2,7 @@ import { pillars } from "@/content/site";
 import { SectionLabel } from "../brand";
 import { Reveal, RevealGroup, RevealItem } from "../reveal";
 
-/** Seção 5: os três ganhos concretos do Fred.o, em composição tipográfica. */
+/** Seção 5: os três ganhos concretos do fred.o, em composição tipográfica. */
 export function Pillars() {
   return (
     <section id="diferenciais" aria-labelledby="diferenciais-title" className="bg-ink py-24 text-paper md:py-32">

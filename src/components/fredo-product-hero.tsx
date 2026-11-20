@@ -106,7 +106,7 @@ export function FredoProductHero({ tone = "dark", chips = [], priority, classNam
         >
           {/* O robô já flutua e a tela anima dentro do próprio vídeo */}
           <FredoAnimated
-            alt="Fred.o, robô de pesagem autônoma: a tela mostra olhos, a leitura do peso do prato e o valor enviado ao PDV"
+            alt="fred.o, robô de pesagem autônoma: a tela mostra olhos, a leitura do peso do prato e o valor enviado ao PDV"
             priority={priority}
             sizes="(min-width: 1024px) 26rem, (min-width: 640px) 22rem, 70vw"
           />

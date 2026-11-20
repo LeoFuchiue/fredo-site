@@ -4,8 +4,8 @@ import { FredoProductHero } from "../fredo-product-hero";
 import { ButtonLink } from "../ui";
 
 /**
- * Seção 1: Rapidez. Precisão. Economia.
- * Fundo off-white da marca, Fred.o animado como protagonista.
+ * Seção 1: Rapidez. Precisão. Economia. CTA secundário leva ao "Encontre uma revenda".
+ * Fundo off-white da marca, fred.o animado como protagonista.
  * Os textos entram com animação CSS (aparecem antes da hidratação, melhor para o LCP).
  */
 export function Hero() {
@@ -38,7 +38,7 @@ export function Hero() {
           >
             Automatize a pesagem do seu restaurante com o{" "}
             <span className="whitespace-nowrap">
-              Fred<span className="text-terracotta">.</span>o.
+              fred<span className="text-terracotta">.</span>o.
             </span>
           </h1>
 
@@ -50,7 +50,7 @@ export function Hero() {
             <ButtonLink href={hero.primaryCta.href} withArrow>
               {hero.primaryCta.label}
             </ButtonLink>
-            <ButtonLink href={hero.secondaryCta.href} variant="secondary" whatsapp>
+            <ButtonLink href={hero.secondaryCta.href} variant="secondary">
               {hero.secondaryCta.label}
             </ButtonLink>
           </div>

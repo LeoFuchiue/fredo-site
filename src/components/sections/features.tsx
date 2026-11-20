@@ -6,7 +6,7 @@ import { cn } from "../ui";
 
 type Item = (typeof features.items)[number];
 
-/** Cada funcionalidade usa uma tela real do Fred.o (fotos tratadas). */
+/** Cada funcionalidade usa uma tela real do fred.o (fotos tratadas). */
 function Visual({ item }: { item: Item }) {
   switch (item.id) {
     case "peso-valor":
