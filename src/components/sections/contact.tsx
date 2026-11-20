@@ -1,7 +1,9 @@
 import { Search } from "lucide-react";
+import { revendas } from "@/content/revendas";
 import { contact } from "@/content/site";
 import { externalLinkProps } from "@/lib/whatsapp";
 import { SectionLabel } from "../brand";
+import { FredoSays } from "../fredo-says";
 import { Reveal } from "../reveal";
 import { buttonBase, buttonVariants, cn } from "../ui";
 
@@ -19,6 +21,7 @@ export function Contact() {
             {contact.title}
           </h2>
           <p className="max-w-md text-pretty text-body text-graphite/85">{contact.description}</p>
+          <FredoSays>{contact.says}</FredoSays>
         </Reveal>
 
         <Reveal delay={0.1} className="lg:col-span-7">
@@ -48,6 +51,12 @@ export function Contact() {
               <p className="text-sm text-muted">
                 Mostramos as revendas autorizadas mais próximas, com WhatsApp, endereço e site.
               </p>
+              {revendas.length > 0 && (
+                <p className="text-sm text-graphite">
+                  <span className="font-semibold text-ink">Revendas autorizadas em: </span>
+                  {[...new Set(revendas.map((r) => `${r.cidade}/${r.uf}`))].join(" · ")}
+                </p>
+              )}
             </form>
 
             <p className="mt-8 border-t border-line pt-6 text-sm text-graphite">

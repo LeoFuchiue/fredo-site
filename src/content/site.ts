@@ -21,11 +21,11 @@ export const site = {
 
 export const nav = [
   { href: "/#conheca", label: "O fred.o" },
-  { href: "/#video", label: "Vídeo" },
-  { href: "/#funcionalidades", label: "Funcionalidades" },
   { href: "/#como-funciona", label: "Como funciona" },
-  { href: "/#integracao", label: "Integração" },
+  { href: "/#economia", label: "Economia" },
   { href: "/#contratacao", label: "Contratação" },
+  { href: "/#duvidas", label: "Dúvidas" },
+  { href: "/fredo/parceiro", label: "Seja parceiro" },
 ] as const;
 
 /**
@@ -47,6 +47,7 @@ export const hero = {
 // 2 — Conheça o fred.o
 export const about = {
   eyebrow: "Conheça o fred.o",
+  says: "Oi! Eu sou o fred.o.",
   title: "Um robô que cuida da balança por você.",
   text: "O fred.o fica ao lado da balança do seu self-service e faz a pesagem sozinho: lê o peso do prato, mostra o valor na tela, pede para o cliente bipar a comanda e envia tudo para o PDV.",
   personality:
@@ -95,10 +96,16 @@ export const features = {
   ],
 } as const;
 
-// 4 — Como funciona (sequência das telas reais do equipamento)
+// 4 — Como funciona (sequência das telas reais do equipamento + integração com o PDV)
 export const steps = {
   eyebrow: "Como funciona",
   title: "Simples para o cliente. Inteligente para o restaurante.",
+  says: "Pode deixar que eu peso!",
+  integration: {
+    title: "Ligado ao caixa do seu restaurante",
+    text: "O valor de cada pesagem vai direto para a comanda no seu sistema de PDV, sem ninguém digitar de novo. O fred.o funciona com PDVs e balanças homologados, e a revenda da sua região confirma se o seu sistema é compatível antes da instalação.",
+    cta: { href: "/fredo/revendas", label: "Consultar o meu sistema com uma revenda" },
+  },
   items: [
     {
       title: "Prato na balança",
@@ -155,7 +162,55 @@ export const videoShowcase = {
   cta: reseller,
 } as const;
 
-// 7 — Tecnologia e integração (sem citar sistemas homologados)
+// 6b — Calculadora de economia (não mostra preço do fred.o)
+export const savings = {
+  eyebrow: "Economia",
+  title: "Quanto custa manter alguém só na balança?",
+  text: "Coloque o custo mensal de quem fica na pesagem (salário, encargos e benefícios) e veja quanto o seu restaurante pode redirecionar para o salão, a cozinha ou o caixa.",
+  says: "Faz a conta comigo!",
+  note: "Estimativa simples, só com os números que você informou. A revenda apresenta o valor da locação do fred.o para comparar.",
+  cta: { href: "/fredo/revendas", label: "Comparar com uma revenda" },
+} as const;
+
+// 9b — Dúvidas do restaurante (respostas alinhadas ao contrato de locação)
+export const faq = {
+  eyebrow: "Dúvidas frequentes",
+  title: "O que os donos de restaurante perguntam.",
+  says: "Pergunta que eu respondo.",
+  items: [
+    {
+      q: "Preciso comprar o fred.o?",
+      a: "Não. O fred.o é alugado: o restaurante paga uma mensalidade e usa o equipamento sem precisar comprá-lo. Manutenção e suporte fazem parte do serviço.",
+    },
+    {
+      q: "Funciona com o meu sistema de caixa (PDV)?",
+      a: "O fred.o funciona integrado a sistemas de PDV e balanças homologados, ou seja, já testados e aprovados. A revenda da sua região confere o seu sistema antes da instalação.",
+    },
+    {
+      q: "E se eu trocar de sistema de PDV depois?",
+      a: "Fale antes com a sua revenda. Ela verifica se o novo sistema já é homologado ou se dá para homologar, para o fred.o continuar funcionando.",
+    },
+    {
+      q: "Se o fred.o ficar fora do ar, a balança para?",
+      a: "Não. A balança e o caixa continuam funcionando normalmente, e a pesagem pode ser feita do jeito tradicional até o fred.o voltar.",
+    },
+    {
+      q: "O fred.o mexe na aferição da balança?",
+      a: "Não. Ele só lê o peso que a balança informa. A balança continua sendo a mesma, com a verificação do Inmetro/Ipem sob responsabilidade do restaurante, como já é hoje.",
+    },
+    {
+      q: "Preciso de internet no restaurante?",
+      a: "Sim. O fred.o precisa de energia e de conexão com a internet no local. A revenda verifica isso na visita antes da instalação.",
+    },
+    {
+      q: "Quem instala e dá suporte?",
+      a: "Uma revenda autorizada da sua região. Ela mostra o fred.o funcionando, apresenta as condições, faz a instalação e cuida do seu atendimento depois.",
+    },
+  ],
+  cta: { href: "/fredo/revendas", label: "Falar com uma revenda" },
+} as const;
+
+// 7 — Tecnologia e integração (não usada na página: o conteúdo foi para "Como funciona") (sem citar sistemas homologados)
 export const integration = {
   eyebrow: "Tecnologia e integração",
   title: "Conectado à operação do seu restaurante.",
@@ -180,6 +235,7 @@ export const hiring = {
 
 // 9 — Encontre uma revenda (o contato do restaurante vai para a revenda da região)
 export const contact = {
+  says: "Vamos achar a revenda mais perto de você?",
   eyebrow: "Revendas autorizadas",
   title: "Encontre a revenda fred.o mais próxima.",
   description:

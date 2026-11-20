@@ -5,6 +5,8 @@ import { Footer } from "@/components/footer";
 import { FredoProductHero } from "@/components/fredo-product-hero";
 import { Header } from "@/components/header";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
+import { FredoSays } from "@/components/fredo-says";
+import { PartnerForm } from "@/components/partner-form";
 import { ButtonLink } from "@/components/ui";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import {
@@ -17,7 +19,8 @@ import {
   partnerSteps,
 } from "@/content/parceiro";
 import { site } from "@/content/site";
-import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
+import { revendas } from "@/content/revendas";
+import { WHATSAPP_DISPLAY, externalLinkProps } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: partnerMeta.title,
@@ -111,13 +114,25 @@ function PartnerHero() {
           </div>
 
           <div className="animate-fade-up flex w-full flex-col gap-4 [animation-delay:240ms] sm:w-auto sm:flex-row sm:flex-wrap">
-            <ButtonLink href={partnerHero.primaryCta.href} whatsapp>
+            <ButtonLink href={partnerHero.primaryCta.href} withArrow>
               {partnerHero.primaryCta.label}
             </ButtonLink>
             <ButtonLink href={partnerHero.secondaryCta.href} variant="secondary" withArrow>
               {partnerHero.secondaryCta.label}
             </ButtonLink>
           </div>
+
+          {revendas.length > 0 && (
+            <p className="animate-fade-up text-small text-graphite/80 [animation-delay:280ms]">
+              <span className="font-semibold text-ink">Já fazem parte: </span>
+              {revendas.map((r, i) => (
+                <span key={r.id}>
+                  {i > 0 && " · "}
+                  {r.nome} ({r.cidade}/{r.uf})
+                </span>
+              ))}
+            </p>
+          )}
         </div>
       </div>
     </section>
@@ -252,23 +267,34 @@ function PartnerContact() {
   return (
     <section id="contato" aria-labelledby="contato-title" className="py-16 sm:py-24 md:py-32">
       <div className="container-page">
-        <div className="relative overflow-hidden rounded-card bg-graphite px-6 py-14 text-paper md:px-14 md:py-20">
+        <div className="relative overflow-hidden rounded-card bg-graphite px-6 py-12 text-paper md:px-12 md:py-16">
           <div aria-hidden="true" className="absolute -top-40 -right-40 size-[28rem] rounded-full border border-paper/10" />
           <div aria-hidden="true" className="absolute -top-20 -right-20 size-[16rem] rounded-full border border-paper/10" />
 
-          <Reveal className="relative flex max-w-2xl flex-col items-start gap-6">
-            <SectionLabel inverted>{partnerContact.eyebrow}</SectionLabel>
-            <h2 id="contato-title" className="text-balance text-h3 font-bold md:text-h2">
-              {partnerContact.title}
-            </h2>
-            <p className="text-pretty text-body text-paper/75">{partnerContact.description}</p>
-            <ButtonLink href={partnerContact.cta.href} variant="inverse" whatsapp>
-              {partnerContact.cta.label}
-            </ButtonLink>
-            <p className="text-small text-paper/60">
-              WhatsApp: <span className="font-medium text-paper">{WHATSAPP_DISPLAY}</span>
-            </p>
-          </Reveal>
+          <div className="relative grid gap-10 lg:grid-cols-12 lg:gap-12">
+            <Reveal className="flex flex-col items-start gap-6 lg:col-span-5">
+              <SectionLabel inverted>{partnerContact.eyebrow}</SectionLabel>
+              <h2 id="contato-title" className="text-balance text-h3 font-bold md:text-h2">
+                {partnerContact.title}
+              </h2>
+              <p className="text-pretty text-body text-paper/75">{partnerContact.description}</p>
+              <FredoSays inverted>Bora vender comigo?</FredoSays>
+              <p className="text-small text-paper/60">
+                Prefere falar direto?{" "}
+                <a
+                  href={partnerContact.cta.href}
+                  {...externalLinkProps}
+                  className="font-semibold text-paper underline decoration-terracotta underline-offset-4 hover:text-terracotta"
+                >
+                  WhatsApp {WHATSAPP_DISPLAY}
+                  <span className="sr-only"> (abre em nova aba)</span>
+                </a>
+              </p>
+            </Reveal>
+            <Reveal delay={0.1} className="lg:col-span-7">
+              <PartnerForm inverted />
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

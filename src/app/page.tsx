@@ -3,15 +3,15 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
-import { Features } from "@/components/sections/features";
+import { Faq } from "@/components/sections/faq";
+import { Savings } from "@/components/sections/savings";
 import { Hero } from "@/components/sections/hero";
 import { Hiring } from "@/components/sections/hiring";
 import { HowItWorks } from "@/components/sections/how-it-works";
-import { Integration } from "@/components/sections/integration";
 import { Pillars } from "@/components/sections/pillars";
 import { VideoShowcase } from "@/components/sections/video-showcase";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { site, videoShowcase } from "@/content/site";
+import { faq, site, videoShowcase } from "@/content/site";
 import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -88,6 +88,15 @@ const jsonLd = {
       inLanguage: "pt-BR",
       publisher: { "@id": `${url}/#organization` },
     },
+    {
+      "@type": "FAQPage",
+      "@id": `${url}/#faq`,
+      mainEntity: faq.items.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
   ],
 };
 
@@ -103,11 +112,11 @@ export default function Home() {
         <Hero />
         <About />
         <VideoShowcase />
-        <Features />
         <HowItWorks />
         <Pillars />
-        <Integration />
+        <Savings />
         <Hiring />
+        <Faq />
         <Contact />
       </main>
       <Footer />

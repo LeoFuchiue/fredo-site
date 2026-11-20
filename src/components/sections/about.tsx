@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { about } from "@/content/site";
 import studio from "../../../public/fredo/fredo-estudio-claro.jpg";
 import { FredoScreen, SectionLabel } from "../brand";
+import { FredoSays } from "../fredo-says";
 import { Reveal, RevealGroup, RevealItem } from "../reveal";
 import { ButtonLink } from "../ui";
 
@@ -23,7 +24,7 @@ export function About() {
           {/* Detalhe real: a tela "sorrindo" */}
           <div className="absolute -bottom-6 left-4 w-32 rounded-card border border-line bg-paper p-2.5 shadow-lift sm:w-40 md:-left-4 md:w-36 lg:-left-6 lg:w-44 lg:p-3">
             <FredoScreen src="/fredo/visor/fredo-tela-olhos.webp" alt="" sizes="11rem" />
-            <p className="mt-2 text-center text-sm font-medium text-graphite">Oi! Eu sou o fred.o</p>
+            <p className="mt-2 text-center text-sm font-medium text-graphite">fred.o</p>
           </div>
         </Reveal>
 
@@ -34,6 +35,7 @@ export function About() {
               {about.title}
             </h2>
           </Reveal>
+          <FredoSays>{about.says}</FredoSays>
           <Reveal delay={0.05}>
             <p className="text-pretty text-body text-graphite/85">{about.text}</p>
           </Reveal>
@@ -53,8 +55,8 @@ export function About() {
             ))}
           </RevealGroup>
           <Reveal delay={0.15}>
-            <ButtonLink href="#funcionalidades" variant="secondary" withArrow>
-              Ver funcionalidades
+            <ButtonLink href="#como-funciona" variant="secondary" withArrow>
+              Ver como funciona
             </ButtonLink>
           </Reveal>
         </div>

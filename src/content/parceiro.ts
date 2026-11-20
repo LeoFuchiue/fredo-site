@@ -26,7 +26,7 @@ export const partnerHero = {
   title: "Seja um parceiro fred.o.",
   subtitle:
     "Leve a pesagem autônoma aos restaurantes da sua região e ganhe uma comissão recorrente, todo mês, enquanto o cliente estiver ativo.",
-  primaryCta: cta,
+  primaryCta: { href: "#contato", label: "Quero ser parceiro" },
   secondaryCta: { href: "#como-funciona", label: "Como funciona" },
   highlight: {
     value: "Todo mês.",
