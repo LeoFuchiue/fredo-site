@@ -20,12 +20,12 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "#conheca", label: "O Fred.o" },
-  { href: "#funcionalidades", label: "Funcionalidades" },
-  { href: "#como-funciona", label: "Como funciona" },
-  { href: "#video", label: "Vídeo" },
-  { href: "#integracao", label: "Integração" },
-  { href: "#contratacao", label: "Contratação" },
+  { href: "/#conheca", label: "O Fred.o" },
+  { href: "/#funcionalidades", label: "Funcionalidades" },
+  { href: "/#como-funciona", label: "Como funciona" },
+  { href: "/#video", label: "Vídeo" },
+  { href: "/#integracao", label: "Integração" },
+  { href: "/#contratacao", label: "Contratação" },
 ] as const;
 
 const demo = { href: whatsappHref("demo"), label: "Agendar demonstração" };
@@ -118,22 +118,22 @@ export const steps = {
   ],
 } as const;
 
-// 5 — Diferenciais (sem números nem promessas mensuráveis)
+// 5 — Diferenciais: os ganhos concretos na operação (sem números nem percentuais)
 export const pillars = {
   eyebrow: "Diferenciais",
-  title: "Uma nova maneira de pensar a pesagem.",
+  title: "O que muda no seu restaurante.",
   items: [
     {
-      title: "Rapidez",
-      text: "Uma proposta de operação mais ágil, com tecnologia aplicada ao processo de pesagem.",
+      title: "Sem fila",
+      text: "Cada cliente pesa o prato, bipa a comanda e segue para a mesa. A balança deixa de ser o gargalo do horário de almoço.",
     },
     {
-      title: "Precisão",
-      text: "Informações de pesagem apresentadas pelo equipamento, conforme suas especificações técnicas.",
+      title: "Sem funcionário na balança",
+      text: "Ninguém precisa ficar parado na pesagem. Sua equipe vai para o salão, a reposição do buffet ou o caixa.",
     },
     {
-      title: "Economia",
-      text: "Um modelo de solução que busca eficiência operacional, com condições comerciais adequadas à contratação.",
+      title: "Sem digitar o peso",
+      text: "O peso e o valor vão direto para a comanda no PDV. Sem anotar, sem redigitar e sem erro de lançamento.",
     },
   ],
 } as const;

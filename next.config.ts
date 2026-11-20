@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   // Endereço antigo da Vercel → domínio oficial (evita conteúdo duplicado no Google).
   async redirects() {
     return [
+      // Atalhos para a página de parceiros.
+      { source: "/parceiro", destination: "/fredo/parceiro", permanent: true },
+      { source: "/fredo", destination: "/fredo/parceiro", permanent: false },
       {
         source: "/:path*",
         has: [{ type: "host", value: "fredo-site-one.vercel.app" }],

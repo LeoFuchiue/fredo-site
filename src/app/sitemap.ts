@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { site, videoShowcase } from "@/content/site";
 
 /**
- * Só URLs públicas, canônicas e indexáveis. Hoje o site tem uma página.
+ * Só URLs públicas, canônicas e indexáveis. Hoje: a página principal e a página de parceiros.
  * As imagens e o vídeo são fotos/vídeo reais do Fred.o (sitemap de imagens e de vídeo do Google).
  */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -32,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
           family_friendly: "yes",
         },
       ],
+    },
+    {
+      url: `${u}/fredo/parceiro`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
   ];
 }

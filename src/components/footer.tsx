@@ -28,7 +28,7 @@ export async function Footer() {
 
         <nav aria-label="Rodapé">
           <ul className="grid grid-cols-2 gap-x-12 gap-y-4 text-small sm:grid-cols-3">
-            {[...nav, { href: "#contato", label: "Contato" }].map((item) => (
+            {[...nav, { href: "/#contato", label: "Contato" }, { href: "/fredo/parceiro", label: "Seja parceiro" }].map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}

@@ -9,7 +9,12 @@ import { externalLinkProps, whatsappHref } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "./whatsapp-icon";
 import { ButtonLink, Logo, cn } from "./ui";
 
-export function Header() {
+type HeaderCta = { href: string; label: string };
+
+/** `cta`: botão de destaque do topo. Padrão: agendar demonstração pelo WhatsApp. */
+export function Header({
+  cta = { href: whatsappHref("demo"), label: "Agendar demonstração" },
+}: { cta?: HeaderCta } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -82,12 +87,8 @@ export function Header() {
           </ul>
 
           <div className="hidden lg:block">
-            <ButtonLink
-              href={whatsappHref("demo")}
-              whatsapp
-              className="min-h-11 px-5 text-small"
-            >
-              Agendar demonstração
+            <ButtonLink href={cta.href} whatsapp className="min-h-11 px-5 text-small">
+              {cta.label}
             </ButtonLink>
           </div>
 
@@ -138,13 +139,13 @@ export function Header() {
               ))}
               <li className="pt-6">
                 <a
-                  href={whatsappHref("demo")}
+                  href={cta.href}
                   {...externalLinkProps}
                   onClick={() => setOpen(false)}
                   className="flex min-h-13 w-full items-center justify-center gap-2 rounded-button bg-ink font-semibold text-paper transition-colors duration-300 hover:bg-graphite"
                 >
                   <WhatsAppIcon className="size-5" />
-                  Agendar demonstração
+                  {cta.label}
                   <span className="sr-only"> (abre o WhatsApp em nova aba)</span>
                 </a>
               </li>

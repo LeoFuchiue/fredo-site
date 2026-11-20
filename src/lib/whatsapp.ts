@@ -9,6 +9,7 @@ export const WHATSAPP_MESSAGES = {
   /** Mensagem padrão dos botões comerciais. */
   demo: "Olá! Conheci o Fred.o pelo site e gostaria de saber mais sobre o equipamento e agendar uma demonstração.",
   commercial: "Olá! Gostaria de receber mais informações sobre o Fred.o e suas condições de contratação.",
+  partner: "Olá! Vi a página de parceiros do fred.o e quero saber quanto posso ganhar como parceiro.",
 } as const;
 
 export type WhatsAppIntent = keyof typeof WHATSAPP_MESSAGES;
