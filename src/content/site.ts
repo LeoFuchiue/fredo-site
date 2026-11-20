@@ -38,7 +38,7 @@ export const resellerCta = reseller;
 export const hero = {
   title: "Automatize a pesagem do seu restaurante com o fred.o.",
   subtitle:
-    "O robô que pesa o prato, pede a comanda e manda o valor direto para o caixa. Sem fila e sem funcionário parado na balança do seu self-service.",
+    "O robô que pesa o prato, pede a comanda e manda o valor direto para o caixa. Sem fila e com a sua equipe livre para atender melhor.",
   primaryCta: reseller,
   secondaryCta: { href: "#video", label: "Ver o fred.o em ação" },
 };
@@ -53,7 +53,7 @@ export const about = {
     "De smoking e gravata-borboleta, ele recebe cada cliente na balança com a mesma atenção, do primeiro ao último prato do dia.",
   facts: [
     "Feito para self-service por quilo",
-    "Pesa cada prato sem ajuda de funcionário",
+    "Pesa cada prato sozinho, sem fila",
     "Mostra peso e valor na tela",
     "Lê a comanda e envia o valor ao PDV",
   ],
@@ -139,8 +139,8 @@ export const pillars = {
       text: "Cada cliente pesa o prato, bipa a comanda e segue para a mesa. A balança deixa de ser o gargalo do horário de almoço.",
     },
     {
-      title: "Sem funcionário na balança",
-      text: "Ninguém precisa ficar parado na pesagem. Sua equipe vai para o salão, a reposição do buffet ou o caixa.",
+      title: "Equipe livre",
+      text: "A pesagem acontece sozinha, e a sua equipe fica no salão, na reposição do buffet e no atendimento.",
     },
     {
       title: "Sem digitar o peso",
