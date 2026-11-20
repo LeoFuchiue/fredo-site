@@ -36,7 +36,7 @@ export function FredoProductHero({ tone = "dark", chips = [], priority, classNam
   const backdropY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 40]);
 
   return (
-    <div ref={ref} className={cn("relative mx-auto aspect-[4/5] w-full max-w-[34rem]", className)}>
+    <div ref={ref} className={cn("relative mx-auto aspect-[4/5] w-full", className ?? "max-w-[34rem]")}>
       {/* Fundo: brilho e círculos finos (movem mais devagar = profundidade) */}
       <m.div aria-hidden="true" style={{ y: backdropY }} className="absolute inset-0">
         <m.div
