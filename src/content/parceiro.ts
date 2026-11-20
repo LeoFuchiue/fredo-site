@@ -149,6 +149,6 @@ export const partnerContact = {
   eyebrow: "Vamos conversar",
   title: "Quer saber quanto você pode ganhar?",
   description:
-    "Chame a nossa equipe no WhatsApp. Contamos quanto você ganha por cliente, como funciona o contrato de parceria e os próximos passos.",
+    "Conte um pouco sobre você e abrimos o WhatsApp com a nossa equipe. Lá contamos quanto você ganha por cliente, como funciona o contrato de parceria e os próximos passos.",
   cta: earningsCta,
 } as const;

@@ -80,7 +80,7 @@ export function Savings() {
                   />
                 </div>
                 <p id={`${id}-custo-ajuda`} className="text-sm text-muted">
-                  Salário + encargos + benefícios (vale-transporte, refeição…).
+                  Valor de exemplo: troque pelo seu. Some salário, encargos e benefícios (vale-transporte, refeição…).
                 </p>
               </div>
 
